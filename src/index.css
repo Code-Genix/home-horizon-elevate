@@ -2,39 +2,55 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Modern Real Estate Design System with lifestyle-focused colors */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 35 25% 97%;
+    --foreground: 210 15% 15%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 35 20% 98%;
+    --card-foreground: 210 15% 15%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 35 20% 98%;
+    --popover-foreground: 210 15% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 210 85% 25%;
+    --primary-foreground: 35 25% 97%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 35 15% 92%;
+    --secondary-foreground: 210 15% 25%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 35 10% 90%;
+    --muted-foreground: 210 10% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 180 45% 35%;
+    --accent-foreground: 35 25% 97%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 35 25% 97%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 35 15% 88%;
+    --input: 35 15% 88%;
+    --ring: 210 85% 25%;
+
+    /* Custom real estate design tokens */
+    --cream: 35 25% 95%;
+    --gold: 45 60% 65%;
+    --navy: 210 85% 25%;
+    --teal: 180 45% 35%;
+    --slate: 210 15% 35%;
+    --warm-white: 35 20% 98%;
+    
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(210 85% 25% / 0.9), hsl(180 45% 35% / 0.8));
+    --gradient-card: linear-gradient(135deg, hsl(35 25% 97%), hsl(35 15% 92%));
+    --gradient-accent: linear-gradient(135deg, hsl(45 60% 65%), hsl(35 50% 60%));
+    
+    /* Shadows */
+    --shadow-soft: 0 4px 20px hsl(210 15% 15% / 0.08);
+    --shadow-medium: 0 8px 30px hsl(210 15% 15% / 0.12);
+    --shadow-strong: 0 15px 40px hsl(210 15% 15% / 0.15);
 
     --radius: 0.5rem;
 

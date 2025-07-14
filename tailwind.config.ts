@@ -18,6 +18,10 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				'urbanist': ['Urbanist', 'sans-serif'],
+				'inter': ['Inter', 'sans-serif'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -52,6 +56,13 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				// Custom real estate colors
+				cream: 'hsl(var(--cream))',
+				gold: 'hsl(var(--gold))',
+				navy: 'hsl(var(--navy))',
+				teal: 'hsl(var(--teal))',
+				slate: 'hsl(var(--slate))',
+				'warm-white': 'hsl(var(--warm-white))',
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
