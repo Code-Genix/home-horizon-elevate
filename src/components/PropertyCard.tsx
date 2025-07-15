@@ -47,11 +47,15 @@ const PropertyCard = ({ property }: PropertyCardProps) => {
         >
           {/* Tags */}
           <div className="absolute top-4 left-4 flex flex-wrap gap-2">
-            {property.tags.map((tag) => (
-              <Badge key={tag} className={getTagColor(tag)}>
-                {tag}
-              </Badge>
-            ))}
+            {property.tags.map((tag) => {
+              // If the tag is 'Premium' and isPremium is true, skip rendering this tag to avoid duplicate badge
+              if (tag.toLowerCase() === "premium" && property.isPremium) return null;
+              return (
+                <Badge key={tag} className={getTagColor(tag)}>
+                  {tag}
+                </Badge>
+              );
+            })}
             {property.isPremium && (
               <Badge className="bg-gold text-foreground">Premium</Badge>
             )}
