@@ -2,15 +2,23 @@ import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Badge } from "@/components/ui/badge"
-import { Search, MapPin, Home, IndianRupee } from "lucide-react"
+import { MapPin, Search as SearchIcon } from "lucide-react"
 import { useState } from "react"
 
-const HeroSection = () => {
-  const [searchType, setSearchType] = useState("buy")
+const cities = [
+  "Mumbai",
+  "Bangalore",
+  "Pune",
+  "Delhi",
+  "Hyderabad",
+  "Chennai",
+  "Kolkata",
+  "Ahmedabad",
+]
 
-  const cities = ["Mumbai", "Bangalore", "Pune", "Delhi", "Hyderabad", "Chennai", "Kolkata", "Ahmedabad"]
-  const bhkOptions = ["1 BHK", "2 BHK", "3 BHK", "4+ BHK"]
+const HeroSection = () => {
+  const [selectedCity, setSelectedCity] = useState("");
+  const [locality, setLocality] = useState("");
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -29,8 +37,8 @@ const HeroSection = () => {
         {/* Headlines */}
         <div className="mb-12">
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-urbanist font-bold text-white mb-6 leading-tight">
-            Find Your Dream Home.{" "}
-            <span className="text-gold">Discover Life</span>{" "}
+            Find Your Dream Home.{' '}
+            <span className="text-gold">Discover Life</span>{' '}
             in the Right Place.
           </h1>
           <p className="text-xl md:text-2xl text-white/90 font-inter font-light max-w-3xl mx-auto leading-relaxed">
@@ -38,129 +46,77 @@ const HeroSection = () => {
           </p>
         </div>
 
-        {/* Search Card */}
-        <Card className="bg-warm-white/95 backdrop-blur-md p-6 md:p-8 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.15)] max-w-4xl mx-auto">
-          {/* Buy/Rent Toggle */}
-          <div className="flex justify-center mb-6">
-            <div className="flex bg-secondary rounded-full p-1">
-              <button
-                onClick={() => setSearchType("buy")}
-                className={`px-6 py-3 rounded-full font-inter font-medium transition-all duration-200 ${
-                  searchType === "buy"
-                    ? "bg-navy text-white shadow-md"
-                    : "text-slate hover:text-navy"
-                }`}
-              >
-                Buy
-              </button>
-              <button
-                onClick={() => setSearchType("rent")}
-                className={`px-6 py-3 rounded-full font-inter font-medium transition-all duration-200 ${
-                  searchType === "rent"
-                    ? "bg-navy text-white shadow-md"
-                    : "text-slate hover:text-navy"
-                }`}
-              >
-                Rent
-              </button>
-            </div>
+        {/* Sleek Search Card */}
+        <Card className="w-full max-w-xl rounded-2xl shadow-[0_4px_24px_rgba(30,41,59,0.10)] bg-white/90 p-4 md:p-6 flex flex-col items-center mx-auto border-0">
+          {/* Tagline */}
+          <div className="w-full text-center mb-6">
+            <h2 className="text-xl md:text-2xl font-bold text-navy mb-1 font-urbanist tracking-tight">
+              Browse Homes for Sale
+            </h2>
+            <p className="text-sm md:text-base text-slate-500 font-inter italic">
+              From verified developers. Trusted. Transparent.
+            </p>
           </div>
 
           {/* Search Form */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-            {/* City Selection */}
-            <div className="space-y-2">
-              <label className="text-sm font-inter font-medium text-slate flex items-center gap-2">
-                <MapPin className="h-4 w-4" />
-                City
-              </label>
-              <Select>
-                <SelectTrigger className="h-12 rounded-xl border-2 border-border focus:border-navy">
-                  <SelectValue placeholder="Select city" />
-                </SelectTrigger>
-                <SelectContent>
-                  {cities.map((city) => (
-                    <SelectItem key={city} value={city.toLowerCase()}>
-                      {city}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
+          <form className="w-full flex flex-col gap-3">
+            <div className="flex flex-col md:flex-row gap-3">
+              {/* Select City */}
+              <div className="flex-1">
+                <label className="text-xs font-inter font-medium text-slate-700 flex items-center gap-2 mb-1">
+                  <MapPin className="h-4 w-4 text-navy" />
+                  Select City
+                </label>
+                <Select value={selectedCity} onValueChange={setSelectedCity}>
+                  <SelectTrigger className="h-10 rounded-lg border border-border focus:border-navy bg-white shadow-inner text-sm">
+                    <SelectValue placeholder="Select city" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {cities.map((city) => (
+                      <SelectItem key={city} value={city} className="text-sm">
+                        {city}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+              {/* Locality/Project Name */}
+              <div className="flex-1">
+                <label className="text-xs font-inter font-medium text-slate-700 flex items-center gap-2 mb-1">
+                  <SearchIcon className="h-4 w-4 text-navy" />
+                  Enter locality / project name
+                </label>
+                <Input
+                  value={locality}
+                  onChange={e => setLocality(e.target.value)}
+                  placeholder="Enter locality or project name"
+                  className="h-10 rounded-lg border border-border focus:border-navy bg-white shadow-inner text-sm"
+                />
+              </div>
             </div>
-
-            {/* Area/Project */}
-            <div className="space-y-2">
-              <label className="text-sm font-inter font-medium text-slate flex items-center gap-2">
-                <Search className="h-4 w-4" />
-                Area / Project
-              </label>
-              <Input 
-                placeholder="Enter locality or project name"
-                className="h-12 rounded-xl border-2 border-border focus:border-navy"
-              />
-            </div>
-
-            {/* BHK Type */}
-            <div className="space-y-2">
-              <label className="text-sm font-inter font-medium text-slate flex items-center gap-2">
-                <Home className="h-4 w-4" />
-                BHK
-              </label>
-              <Select>
-                <SelectTrigger className="h-12 rounded-xl border-2 border-border focus:border-navy">
-                  <SelectValue placeholder="Select BHK" />
-                </SelectTrigger>
-                <SelectContent>
-                  {bhkOptions.map((bhk) => (
-                    <SelectItem key={bhk} value={bhk.toLowerCase()}>
-                      {bhk}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </div>
-
-            {/* Budget */}
-            <div className="space-y-2">
-              <label className="text-sm font-inter font-medium text-slate flex items-center gap-2">
-                <IndianRupee className="h-4 w-4" />
-                Budget
-              </label>
-              <Select>
-                <SelectTrigger className="h-12 rounded-xl border-2 border-border focus:border-navy">
-                  <SelectValue placeholder="Select budget" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="50-100">₹50L - ₹1Cr</SelectItem>
-                  <SelectItem value="100-200">₹1Cr - ₹2Cr</SelectItem>
-                  <SelectItem value="200-500">₹2Cr - ₹5Cr</SelectItem>
-                  <SelectItem value="500+">₹5Cr+</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
-          </div>
-
-          {/* Search Button */}
-          <Button 
-            size="lg" 
-            className="w-full md:w-auto md:px-12 h-14 rounded-xl text-lg font-inter font-medium bg-gradient-to-r from-navy to-teal hover:shadow-lg transition-all duration-200"
-          >
-            <Search className="h-5 w-5 mr-2" />
-            Start Exploring
-          </Button>
+            {/* CTA Button */}
+            <Button
+              type="submit"
+              size="default"
+              className="mx-auto mt-2 h-12 w-64 rounded-lg text-base font-inter font-semibold bg-gradient-to-r from-[#0A2342] to-[#2E8BC0] text-white shadow-md hover:from-[#163D5C] hover:to-[#2E8BC0] flex items-center justify-center gap-2 border-0"
+            >
+              <SearchIcon className="h-5 w-5 mr-2" />
+              Start Exploring
+            </Button>
+          </form>
         </Card>
 
-        {/* Trust Indicators */}
-        <div className="mt-8 flex flex-wrap justify-center gap-4">
-          <Badge variant="outline" className="bg-white/20 text-white border-white/30 px-4 py-2">
+        {/* Trust Badges Outside Card */}
+        <div className="mt-6 flex flex-wrap justify-center gap-4 w-full">
+          <span className="px-4 py-1 rounded-full bg-white/20 border border-white/30 text-white text-xs font-inter font-medium shadow-sm backdrop-blur-md">
             10,000+ Verified Properties
-          </Badge>
-          <Badge variant="outline" className="bg-white/20 text-white border-white/30 px-4 py-2">
+          </span>
+          <span className="px-4 py-1 rounded-full bg-white/20 border border-white/30 text-white text-xs font-inter font-medium shadow-sm backdrop-blur-md">
             RERA Approved
-          </Badge>
-          <Badge variant="outline" className="bg-white/20 text-white border-white/30 px-4 py-2">
+          </span>
+          <span className="px-4 py-1 rounded-full bg-white/20 border border-white/30 text-white text-xs font-inter font-medium shadow-sm backdrop-blur-md">
             Direct Owner Contact
-          </Badge>
+          </span>
         </div>
       </div>
     </section>
