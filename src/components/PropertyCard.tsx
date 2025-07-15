@@ -38,11 +38,11 @@ const PropertyCard = ({ property }: PropertyCardProps) => {
   };
 
   return (
-    <Card className="group overflow-hidden transition-all duration-300 hover:shadow-lg border-border hover:border-primary/20">
+    <Card className="group overflow-hidden transition-all duration-300 hover:shadow-md border-border hover:border-primary/20">
       <div className="relative">
         {/* Property Image */}
         <div 
-          className="aspect-[4/3] bg-cover bg-center relative overflow-hidden"
+          className="aspect-[3/2] bg-cover bg-center relative overflow-hidden"
           style={{ backgroundImage: `url(${property.images[currentImageIndex]})` }}
         >
           {/* Tags */}
@@ -91,40 +91,40 @@ const PropertyCard = ({ property }: PropertyCardProps) => {
           )}
         </div>
 
-        <CardContent className="p-6">
+        <CardContent className="p-4">
           {/* Title and Location */}
-          <div className="space-y-2 mb-4">
-            <h3 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors">
+          <div className="space-y-1 mb-3">
+            <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors line-clamp-1">
               {property.title}
             </h3>
             <div className="flex items-center text-muted-foreground">
-              <MapPin className="h-4 w-4 mr-1" />
+              <MapPin className="h-3 w-3 mr-1" />
               <span className="text-sm">{property.location}</span>
             </div>
           </div>
 
           {/* Price */}
-          <div className="mb-4">
-            <p className="text-2xl font-bold text-foreground">{property.price}</p>
+          <div className="mb-3">
+            <p className="text-lg font-bold text-foreground">{property.price}</p>
           </div>
 
           {/* Property Details */}
-          <div className="grid grid-cols-2 gap-4 mb-4 text-sm">
+          <div className="grid grid-cols-2 gap-2 mb-3 text-sm">
             <div className="flex items-center">
-              <Home className="h-4 w-4 mr-2 text-muted-foreground" />
-              <span className="text-muted-foreground">{property.bhkOptions}</span>
+              <Home className="h-3 w-3 mr-1 text-muted-foreground" />
+              <span className="text-muted-foreground text-xs">{property.bhkOptions}</span>
             </div>
             <div className="flex items-center">
-              <Ruler className="h-4 w-4 mr-2 text-muted-foreground" />
-              <span className="text-muted-foreground">{property.carpetArea}</span>
+              <Ruler className="h-3 w-3 mr-1 text-muted-foreground" />
+              <span className="text-muted-foreground text-xs">{property.carpetArea}</span>
             </div>
           </div>
 
           {/* Possession Status */}
-          <div className="flex items-center mb-6">
-            <Calendar className="h-4 w-4 mr-2 text-muted-foreground" />
+          <div className="flex items-center mb-3">
+            <Calendar className="h-3 w-3 mr-1 text-muted-foreground" />
             <span className={cn(
-              "text-sm px-2 py-1 rounded",
+              "text-xs px-2 py-1 rounded-full",
               property.possession.includes("Ready") 
                 ? "bg-green-100 text-green-800" 
                 : "bg-blue-100 text-blue-800"
@@ -133,20 +133,16 @@ const PropertyCard = ({ property }: PropertyCardProps) => {
             </span>
           </div>
 
-          {/* EMI/Down Payment Summary */}
-          <div className="bg-muted/50 rounded-lg p-3 mb-4">
-            <div className="flex justify-between text-sm">
-              <span className="text-muted-foreground">EMI starts from</span>
-              <span className="font-medium text-foreground">₹45,000/month</span>
-            </div>
-            <div className="flex justify-between text-sm mt-1">
-              <span className="text-muted-foreground">Down payment</span>
-              <span className="font-medium text-foreground">₹15 Lakhs</span>
+          {/* EMI Summary - Compact */}
+          <div className="bg-muted/30 rounded p-2 mb-3">
+            <div className="flex justify-between text-xs">
+              <span className="text-muted-foreground">EMI from</span>
+              <span className="font-medium text-foreground">₹45K/mo</span>
             </div>
           </div>
 
           {/* CTA Button */}
-          <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
+          <Button size="sm" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
             View Details
           </Button>
         </CardContent>
