@@ -4,11 +4,11 @@ import { Pagination, PaginationContent, PaginationItem, PaginationLink, Paginati
 import { Button } from "@/components/ui/button";
 import { Bell, Bookmark } from "lucide-react";
 
-// Mock property data with Indian apartment imagery
+// Mock property data
 const mockProperties = [
   {
     id: 1,
-    images: ["https://images.unsplash.com/photo-1721322800607-8c38375eef04?w=600"],
+    images: ["https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800"],
     title: "Pristine Towers",
     location: "Wakad, Pune",
     price: "₹78 Lakhs – ₹1.2 Cr",
@@ -20,7 +20,7 @@ const mockProperties = [
   },
   {
     id: 2,
-    images: ["https://images.unsplash.com/photo-1524230572899-a752b3835840?w=600"],
+    images: ["https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800"],
     title: "Green Valley Residency",
     location: "Hinjawadi, Pune",
     price: "₹95 Lakhs – ₹1.8 Cr",
@@ -32,7 +32,7 @@ const mockProperties = [
   },
   {
     id: 3,
-    images: ["https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=600"],
+    images: ["https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800"],
     title: "Skyline Heights",
     location: "Baner, Pune",
     price: "₹1.2 Cr – ₹2.5 Cr",
@@ -44,7 +44,7 @@ const mockProperties = [
   },
   {
     id: 4,
-    images: ["https://images.unsplash.com/photo-1488972685288-c3fd157d7c7a?w=600"],
+    images: ["https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800"],
     title: "Sunshine Apartments",
     location: "Kharadi, Pune",
     price: "₹65 Lakhs – ₹95 Lakhs",
@@ -56,7 +56,7 @@ const mockProperties = [
   },
   {
     id: 5,
-    images: ["https://images.unsplash.com/photo-1496307653780-42ee777d4833?w=600"],
+    images: ["https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800"],
     title: "Elite Residences",
     location: "Koregaon Park, Pune",
     price: "₹1.8 Cr – ₹3.2 Cr",
@@ -68,7 +68,7 @@ const mockProperties = [
   },
   {
     id: 6,
-    images: ["https://images.unsplash.com/photo-1472396961693-142e6e269027?w=600"],
+    images: ["https://images.unsplash.com/photo-1484154218962-a197022b5858?w=800"],
     title: "Dream Homes",
     location: "Undri, Pune",
     price: "₹55 Lakhs – ₹85 Lakhs",
@@ -124,7 +124,7 @@ const PropertyGrid = ({ filters }: PropertyGridProps) => {
       </div>
 
       {/* Property Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {currentProperties.map((property) => (
           <PropertyCard key={property.id} property={property} />
         ))}

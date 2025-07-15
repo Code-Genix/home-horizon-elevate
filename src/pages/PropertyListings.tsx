@@ -28,7 +28,7 @@ const PropertyListings = () => {
           onFiltersChange={setFilters}
         />
         
-        <main className="flex-1 p-4 lg:p-6">
+        <main className="flex-1 p-6">
           <PropertyGrid filters={filters} />
         </main>
       </div>
