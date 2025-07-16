@@ -46,7 +46,7 @@ const PropertyCard = ({ property }: PropertyCardProps) => {
       whileHover={{ scale: 1.04 }}
       className="h-full"
     >
-      <Card className="group overflow-hidden transition-all duration-300 hover:shadow-lg border-border hover:border-primary/20">
+      <Card className="group overflow-hidden transition-all duration-300 hover:shadow-lg hover:border-primary/20">
         <div className="relative">
           {/* Property Image */}
           <div 
