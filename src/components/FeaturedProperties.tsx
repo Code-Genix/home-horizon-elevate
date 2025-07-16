@@ -7,7 +7,7 @@ const FeaturedProperties = () => {
   const properties = [
     {
       id: 1,
-      image: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      image: "/koregaon-park.jpg",
       title: "Luxury Apartments at Koregaon Park",
       location: "Koregaon Park, Pune",
       price: "₹1.2 Cr",
@@ -18,7 +18,7 @@ const FeaturedProperties = () => {
     },
     {
       id: 2,
-      image: "https://images.unsplash.com/photo-1483058712412-4245e9b90334?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      image: "https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=800&q=80", // High-rise apartment complex
       title: "Premium Residences in Andheri",
       location: "Andheri West, Mumbai",
       price: "₹2.8 Cr",
@@ -29,7 +29,7 @@ const FeaturedProperties = () => {
     },
     {
       id: 3,
-      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      image: "https://images.unsplash.com/photo-1523217582562-09d0def993a6?auto=format&fit=crop&w=800&q=80", // Modern apartment interior
       title: "Modern Homes in Electronic City",
       location: "Electronic City, Bangalore",
       price: "₹95 L",
@@ -40,7 +40,7 @@ const FeaturedProperties = () => {
     },
     {
       id: 4,
-      image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      image: "https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=800&q=80", // Waterfront apartment view
       title: "Waterfront Apartments in Worli",
       location: "Worli, Mumbai",
       price: "₹4.5 Cr",
@@ -73,6 +73,7 @@ const FeaturedProperties = () => {
                   src={property.image}
                   alt={property.title}
                   className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                  onError={e => { e.currentTarget.src = '/fallback-image.jpg'; }}
                 />
                 <div className="absolute top-4 left-4 flex flex-wrap gap-2">
                   {property.badges.map((badge, index) => (
