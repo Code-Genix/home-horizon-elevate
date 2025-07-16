@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Heart, MapPin, Calendar, Home, Ruler } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 interface PropertyCardProps {
   property: {
@@ -158,8 +159,10 @@ const PropertyCard = ({ property }: PropertyCardProps) => {
             </div>
 
             {/* CTA Button */}
-            <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
-              View Details
+            <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground" asChild>
+              <Link to={`/property/${property.id}`}>
+                View Details
+              </Link>
             </Button>
           </CardContent>
         </div>
