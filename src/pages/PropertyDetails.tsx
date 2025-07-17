@@ -21,12 +21,12 @@ const getPropertyData = (id: string) => ({
   bhkTypes: ["1BHK", "2BHK", "3BHK"],
   rera: "P52100047890",
   images: [
-    "https://images.unsplash.com/photo-1721322800607-8c38375eef04?w=800&h=600&fit=crop",
-    "https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=800&h=600&fit=crop",
-    "https://images.unsplash.com/photo-1486718448742-163732cd1544?w=800&h=600&fit=crop",
-    "https://images.unsplash.com/photo-1496307653780-42ee777d4833?w=800&h=600&fit=crop",
-    "https://images.unsplash.com/photo-1459767129954-1b1c1f9b9ace?w=800&h=600&fit=crop",
-    "https://images.unsplash.com/photo-1721322800607-8c38375eef04?w=800&h=600&fit=crop",
+    "/Rohan Ekum/rohan-ekam-living-room.jpg",
+    "/Rohan Ekum/rohan-ekam-balcony.jpg",
+    "/Rohan Ekum/rohan-ekam-bedroom.jpg",
+    "/Rohan Ekum/rohan-ekam-kitchen.jpg",
+    "/Rohan Ekum/rohan-ekam-society-img1.jpg",
+    "/Rohan Ekum/rohan-ekam-society-img2.jpg",
   ],
   builder: {
     name: "Rohan Builders",
