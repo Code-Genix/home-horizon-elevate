@@ -84,30 +84,43 @@ const PropertyTabs = ({ property, onAuthRequired, isAuthenticated }: PropertyTab
       </TabsContent>
 
       <TabsContent value="floorplans" className="space-y-6">
-        <Card>
-          <CardHeader>
-            <CardTitle>Master & Floor Plans</CardTitle>
-            <CardDescription>High-resolution floor plans for each configuration</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <div className="grid md:grid-cols-3 gap-4">
-              {property.bhkTypes.map((bhk: string) => (
-                <div key={bhk} className="space-y-3">
-                  <div className="aspect-[3/4] bg-muted rounded-lg flex items-center justify-center">
-                    <div className="text-center">
-                      <p className="font-medium">{bhk}</p>
-                      <p className="text-sm text-muted-foreground">Floor Plan</p>
-                    </div>
+        <div className="max-w-6xl mx-auto">
+          <Card className="bg-white shadow-sm">
+            <CardContent className="p-0">
+              {/* Header Section */}
+              <div className="flex items-center justify-between p-6 pb-4">
+                <div className="flex items-center space-x-6">
+                  <div className="border-b-2 border-green-500 pb-2">
+                    <span className="text-sm font-medium text-green-600">Master Plan</span>
                   </div>
-                  <Button variant="outline" size="sm" className="w-full">
-                    <Download className="w-4 h-4 mr-2" />
-                    Download PDF
-                  </Button>
                 </div>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
+                <Button className="bg-green-600 hover:bg-green-700 text-white">
+                  <Download className="w-4 h-4 mr-2" />
+                  Plan Kit
+                </Button>
+              </div>
+              
+              {/* Content Section */}
+              <div className="px-6 pb-6">
+                <div className="flex items-center justify-between mb-6">
+                  <h2 className="text-lg font-semibold text-gray-900">MASTER PLAN</h2>
+                  <h3 className="text-lg font-bold text-gray-900">ROHAN EKAM BALEWADI</h3>
+                </div>
+                
+                {/* Master Plan Image */}
+                <div className="flex justify-center">
+                  <div className="w-full max-w-4xl">
+                    <img 
+                      src="/lovable-uploads/40072597-43bd-48a3-8309-95fc28dbb321.png"
+                      alt="Master Plan - Rohan Ekam Balewadi"
+                      className="w-full h-auto object-contain rounded-lg"
+                    />
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
       </TabsContent>
 
       <TabsContent value="pricing" className="space-y-6">
