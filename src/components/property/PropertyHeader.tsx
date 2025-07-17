@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
@@ -23,6 +23,28 @@ interface PropertyHeaderProps {
 const PropertyHeader = ({ property, onLocationClick, onAuthRequired, isAuthenticated }: PropertyHeaderProps) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [showFullPrice, setShowFullPrice] = useState(isAuthenticated);
+  const [carouselApi, setCarouselApi] = useState<any>(null);
+
+  // Update currentImageIndex when carousel slides change
+  useEffect(() => {
+    if (!carouselApi) return;
+
+    const onSelect = () => {
+      setCurrentImageIndex(carouselApi.selectedScrollSnap());
+    };
+
+    carouselApi.on('select', onSelect);
+    return () => {
+      carouselApi.off('select', onSelect);
+    };
+  }, [carouselApi]);
+
+  // Scroll carousel to selected thumbnail
+  const scrollTo = (index: number) => {
+    if (carouselApi) {
+      carouselApi.scrollTo(index);
+    }
+  };
 
   return (
     <div className="bg-card border-b">
@@ -30,7 +52,7 @@ const PropertyHeader = ({ property, onLocationClick, onAuthRequired, isAuthentic
         <div className="grid lg:grid-cols-2 gap-8">
           {/* Image Carousel */}
           <div className="relative">
-            <Carousel className="w-full">
+            <Carousel className="w-full" setApi={setCarouselApi}>
               <CarouselContent>
                 {property.images.map((image, index) => (
                   <CarouselItem key={index}>
@@ -56,11 +78,12 @@ const PropertyHeader = ({ property, onLocationClick, onAuthRequired, isAuthentic
               {property.images.slice(0, 6).map((image, index) => (
                 <button
                   key={index}
-                  onClick={() => setCurrentImageIndex(index)}
+                  onClick={() => scrollTo(index)}
                   className={cn(
                     "flex-shrink-0 w-16 h-12 rounded-md overflow-hidden border-2",
-                    currentImageIndex === index ? "border-primary" : "border-border"
+                    currentImageIndex === index ? "border-blue-800" : "border-border hover:border-blue-300"
                   )}
+                  style={{ outline: currentImageIndex === index ? '2px solid #1e3a8a' : undefined }}
                 >
                   <img src={image} alt="" className="w-full h-full object-cover" />
                 </button>

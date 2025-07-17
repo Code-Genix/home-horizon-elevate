@@ -70,6 +70,7 @@ const PropertyDetails = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [showMasterPlan, setShowMasterPlan] = useState(true);
   const [activeSection, setActiveSection] = useState("overview");
+  const [selectedImage, setSelectedImage] = useState(0);
 
   const property = getPropertyData(id || "1");
 

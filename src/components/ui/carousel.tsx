@@ -58,6 +58,7 @@ const Carousel = React.forwardRef<
   ) => {
     const [carouselRef, api] = useEmblaCarousel(
       {
+        duration: opts?.duration ?? 15, // Set default duration to 15 for moderate swipe speed
         ...opts,
         axis: orientation === "horizontal" ? "x" : "y",
       },
