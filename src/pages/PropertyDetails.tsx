@@ -238,8 +238,12 @@ const PropertyDetails = () => {
           <div className="bg-card rounded-lg border p-6">
             {showMasterPlan ? (
               <div className="text-center space-y-4">
-                <div className="mx-auto max-w-md h-64 bg-muted rounded-lg flex items-center justify-center">
-                  <p className="text-muted-foreground text-lg">Master Plan Layout</p>
+                <div className="mx-auto max-w-4xl">
+                  <img 
+                    src="/rohan-ekum-master-plan.jpg"
+                    alt="Master Plan - Rohan Ekam Balewadi"
+                    className="w-full h-auto object-contain rounded-lg"
+                  />
                 </div>
                 <Button variant="outline">
                   <Download className="w-4 h-4 mr-2" />

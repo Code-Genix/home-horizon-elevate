@@ -12,7 +12,7 @@ const RelatedProjectsCarousel = () => {
       location: "Hinjewadi, Pune",
       price: "₹85 Lakhs onwards",
       bhk: "1, 2, 3 BHK",
-      image: "/koregaon-park.jpg",
+      image: "/godrej-elements.jpg",
       tag: "New Launch"
     },
     {
@@ -21,7 +21,7 @@ const RelatedProjectsCarousel = () => {
       location: "Hinjewadi, Pune",
       price: "₹1.2 Cr onwards",
       bhk: "2, 3 BHK",
-      image: "/koregaon-park.jpg",
+      image: "/paranjape-blue-ridge.gif",
       tag: "Ready to Move"
     },
     {
@@ -30,7 +30,7 @@ const RelatedProjectsCarousel = () => {
       location: "Hinjewadi, Pune",
       price: "₹65 Lakhs onwards",
       bhk: "1, 2, 3 BHK",
-      image: "/koregaon-park.jpg",
+      image: "/kolte-patil-life-republic.jpg",
       tag: "Hot Deal"
     },
     {
@@ -39,7 +39,7 @@ const RelatedProjectsCarousel = () => {
       location: "Lepakshi, Pune",
       price: "₹55 Lakhs onwards",
       bhk: "1, 2 BHK",
-      image: "/koregaon-park.jpg",
+      image: "/rohan-vasanta.jpg",
       tag: "Premium"
     },
     {
@@ -48,7 +48,7 @@ const RelatedProjectsCarousel = () => {
       location: "Thane West",
       price: "₹1.5 Cr onwards",
       bhk: "2, 3, 4 BHK",
-      image: "/koregaon-park.jpg",
+      image: "/tata-serein.webp",
       tag: "Luxury"
     }
   ];

@@ -14,9 +14,9 @@ interface AboutBuilderProps {
 
 const AboutBuilder = ({ builder }: AboutBuilderProps) => {
   const otherProjects = [
-    { name: "Rohan Abhilasha", location: "Wagholi", price: "₹45 Lakhs onwards" },
-    { name: "Rohan Vasanta", location: "Lepakshi", price: "₹55 Lakhs onwards" },
-    { name: "Rohan Kritika", location: "Sinhagad Road", price: "₹65 Lakhs onwards" },
+    { name: "Rohan Abhilasha", location: "Wagholi", price: "₹45 Lakhs onwards", image: "/rohan-abhilasha.png" },
+    { name: "Rohan Vasanta", location: "Lepakshi", price: "₹55 Lakhs onwards", image: "/rohan-vasanta.jpg" },
+    { name: "Rohan Kritika", location: "Sinhagad Road", price: "₹65 Lakhs onwards", image: "/rohan-kritika.jpg" },
   ];
 
   return (
@@ -64,7 +64,7 @@ const AboutBuilder = ({ builder }: AboutBuilderProps) => {
               <div key={project.name} className="border rounded-lg p-4 space-y-2">
                 <div className="aspect-[4/3] bg-muted rounded-lg mb-3">
                   <img 
-                    src="/koregaon-park.jpg" 
+                    src={project.image} 
                     alt={project.name}
                     className="w-full h-full object-cover rounded-lg"
                   />

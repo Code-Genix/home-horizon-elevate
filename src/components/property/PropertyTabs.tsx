@@ -111,7 +111,7 @@ const PropertyTabs = ({ property, onAuthRequired, isAuthenticated }: PropertyTab
                 <div className="flex justify-center">
                   <div className="w-full max-w-4xl">
                     <img 
-                      src="/lovable-uploads/40072597-43bd-48a3-8309-95fc28dbb321.png"
+                      src="/rohan-ekum-master-plan.jpg"
                       alt="Master Plan - Rohan Ekam Balewadi"
                       className="w-full h-auto object-contain rounded-lg"
                     />
