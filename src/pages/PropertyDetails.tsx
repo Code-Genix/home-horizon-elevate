@@ -237,8 +237,8 @@ const PropertyDetails = () => {
           <div className="bg-card rounded-lg border p-6">
             {showMasterPlan ? (
               <div className="text-center space-y-4">
-                <div className="aspect-[4/3] bg-muted rounded-lg flex items-center justify-center">
-                  <p className="text-muted-foreground">Master Plan Layout</p>
+                <div className="mx-auto max-w-md h-64 bg-muted rounded-lg flex items-center justify-center">
+                  <p className="text-muted-foreground text-lg">Master Plan Layout</p>
                 </div>
                 <Button variant="outline">
                   <Download className="w-4 h-4 mr-2" />
@@ -249,8 +249,8 @@ const PropertyDetails = () => {
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {property.bhkTypes.map((bhk, index) => (
                   <div key={index} className="space-y-3">
-                    <div className="aspect-square bg-muted rounded-lg flex items-center justify-center">
-                      <p className="text-muted-foreground">{bhk} Layout</p>
+                    <div className="mx-auto max-w-xs h-56 bg-muted rounded-lg flex items-center justify-center">
+                      <p className="text-muted-foreground text-base">{bhk} Layout</p>
                     </div>
                     <div className="space-y-1">
                       <p className="font-medium">{bhk}</p>
