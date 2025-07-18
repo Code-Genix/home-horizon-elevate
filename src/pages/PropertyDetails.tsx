@@ -10,6 +10,7 @@ import AuthModal from "@/components/property/AuthModal";
 import AboutBuilder from "@/components/property/AboutBuilder";
 import FaqAccordion from "@/components/property/FaqAccordion";
 import RelatedProjectsCarousel from "@/components/property/RelatedProjectsCarousel";
+import FloorPlansSection from "@/components/property/FloorPlansSection";
 
 // Mock property data
 const getPropertyData = (id: string) => ({
@@ -211,68 +212,11 @@ const PropertyDetails = () => {
           </div>
         </section>
 
-        {/* Floor Plans Section */}
-        <section id="floor-plans" className="space-y-6">
-          <div className="flex items-center justify-between">
-            <h2 className="text-2xl font-bold">Floor Plans</h2>
-            <div className="flex bg-muted rounded-lg p-1">
-              <button
-                onClick={() => setShowMasterPlan(true)}
-                className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
-                  showMasterPlan ? "bg-background text-foreground shadow-sm" : "text-muted-foreground"
-                }`}
-              >
-                Master Plan
-              </button>
-              <button
-                onClick={() => setShowMasterPlan(false)}
-                className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
-                  !showMasterPlan ? "bg-background text-foreground shadow-sm" : "text-muted-foreground"
-                }`}
-              >
-                Floor Plan
-              </button>
-            </div>
-          </div>
-          
-          <div className="bg-card rounded-lg border p-6">
-            {showMasterPlan ? (
-              <div className="text-center space-y-4">
-                <div className="mx-auto max-w-4xl">
-                  <img 
-                    src="/rohan-ekum-master-plan.jpg"
-                    alt="Master Plan - Rohan Ekam Balewadi"
-                    className="w-full h-auto object-contain rounded-lg"
-                  />
-                </div>
-                <Button variant="outline">
-                  <Download className="w-4 h-4 mr-2" />
-                  Download Master Plan PDF
-                </Button>
-              </div>
-            ) : (
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {property.bhkTypes.map((bhk, index) => (
-                  <div key={index} className="space-y-3">
-                    <div className="mx-auto max-w-xs h-56 bg-muted rounded-lg flex items-center justify-center">
-                      <p className="text-muted-foreground text-base">{bhk} Layout</p>
-                    </div>
-                    <div className="space-y-1">
-                      <p className="font-medium">{bhk}</p>
-                      <p className="text-sm text-muted-foreground">
-                        {bhk === "1BHK" ? "650 sq.ft" : bhk === "2BHK" ? "950 sq.ft" : "1250 sq.ft"}
-                      </p>
-                      <Button variant="outline" size="sm">
-                        <Download className="w-3 h-3 mr-1" />
-                        Download PDF
-                      </Button>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
-        </section>
+        {/* Floor Plans Section - Replaced with new component */}
+        <FloorPlansSection 
+          isAuthenticated={isAuthenticated}
+          onAuthRequired={handleAuthRequired}
+        />
 
         {/* Pricing Section */}
         <section id="pricing" className="space-y-6">
