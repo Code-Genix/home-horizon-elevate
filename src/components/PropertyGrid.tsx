@@ -8,14 +8,21 @@ import { Bell, Bookmark } from "lucide-react";
 const mockProperties = [
   {
     id: 1,
-    images: ["/Rohan Ekum/rohan-ekam-living-room.jpg", "/Rohan Ekum/rohan-ekam-bedroom.jpg", "/Rohan Ekum/rohan-ekam-kitchen.jpg"],
-    title: "Rohan Ekam",
-    location: "Wagholi, Pune",
-    price: "₹45 Lakhs – ₹75 Lakhs",
+    images: [
+      "/Rohan%20Ekum/rohan-ekam-society-img1.jpg",
+      "/Rohan%20Ekum/rohan-ekam-balcony.jpg",
+      "/Rohan%20Ekum/rohan-ekam-bedroom.jpg",
+      "/Rohan%20Ekum/rohan-ekam-kitchen.jpg",
+      "/Rohan%20Ekum/rohan-ekam-living-room.jpg",
+      "/Rohan%20Ekum/rohan-ekam-society-img2.jpg"
+    ],
+    title: "Rohan Ekam Balewadi",
+    location: "Balewadi, Pune",
+    price: "₹1.30 Cr - ₹3.35 Cr",
     bhkOptions: "1BHK / 2BHK / 3BHK",
-    carpetArea: "480–850 sq.ft.",
-    possession: "Possession by Dec 2025",
-    tags: ["New Launch", "Hot Deal"],
+    carpetArea: "650–1250 sq.ft.",
+    possession: "Ready to Move",
+    tags: ["Ready to Move", "RERA Approved", "Premium Location"],
     isPremium: true
   },
   {
