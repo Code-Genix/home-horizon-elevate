@@ -11,6 +11,7 @@ import AboutBuilder from "@/components/property/AboutBuilder";
 import FaqAccordion from "@/components/property/FaqAccordion";
 import RelatedProjectsCarousel from "@/components/property/RelatedProjectsCarousel";
 import FloorPlansSection from "@/components/property/FloorPlansSection";
+import PartnerBanks from "@/components/property/PartnerBanks";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 
 // Mock property data
@@ -51,12 +52,12 @@ const getPropertyData = (id: string) => ({
     { name: "Parking", icon: "🚗" }
   ],
   partnerBanks: [
-    { name: "HDFC Bank", logo: "🏦" },
-    { name: "SBI", logo: "🏦" },
-    { name: "ICICI Bank", logo: "🏦" },
-    { name: "Axis Bank", logo: "🏦" },
-    { name: "Kotak Bank", logo: "🏦" },
-    { name: "Punjab National Bank", logo: "🏦" }
+    { name: "HDFC Bank", logo: "/lovable-uploads/81b31e6d-fea5-4de3-856c-7902094b884a.png", preApproved: true },
+    { name: "SBI", logo: "/lovable-uploads/6b002fca-9e8f-42fa-8b96-5debbeeb532b.png", preApproved: true },
+    { name: "ICICI Bank", logo: "/lovable-uploads/3c7672f5-6eec-4a1c-a399-c8dfc87f11ff.png", preApproved: true },
+    { name: "Axis Bank", logo: "/lovable-uploads/717ecf42-d966-4a2a-ba1c-caf1ff728db7.png", preApproved: false },
+    { name: "Kotak Bank", logo: "/lovable-uploads/806e47ae-7165-4537-9442-a84e5a840b0d.png", preApproved: false },
+    { name: "Punjab National Bank", logo: "/lovable-uploads/cb81daaa-d012-414a-b31d-3f45c412284f.png", preApproved: false }
   ],
   units: [
     { type: "1BHK", area: "650 sq.ft", price: "₹1.30 Cr", available: 5, locked: false },
@@ -358,28 +359,7 @@ const PropertyDetails = () => {
         </section>
 
         {/* Partner Banks Section */}
-        <section className="space-y-6">
-          <h2 className="text-2xl font-bold">Partner Banks</h2>
-          <div className="bg-card rounded-lg border p-6">
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
-              {property.partnerBanks.map((bank, index) => (
-                <div key={index} className="flex items-center space-x-3 p-3 rounded-lg bg-background">
-                  <div className="text-2xl">{bank.logo}</div>
-                  <div>
-                    <p className="font-medium text-sm">{bank.name}</p>
-                    {index < 3 && <Badge variant="secondary" className="text-xs mt-1">Pre-approved</Badge>}
-                  </div>
-                </div>
-              ))}
-            </div>
-            <div className="text-center">
-              <Button>
-                <Phone className="w-4 h-4 mr-2" />
-                Talk to Our Loan Advisor
-              </Button>
-            </div>
-          </div>
-        </section>
+        <PartnerBanks banks={property.partnerBanks} />
 
         <AboutBuilder builder={property.builder} />
         <FaqAccordion />
