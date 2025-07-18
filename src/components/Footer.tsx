@@ -159,7 +159,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-white/20 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
           <div className="font-inter text-white/60 text-sm mb-4 md:mb-0">
-            © 2024 HomeHorizon. All rights reserved.
+            © 2025 HomeHorizon. All rights reserved.
           </div>
           <div className="flex gap-6">
             <a href="#" className="font-inter text-white/60 hover:text-white text-sm transition-colors duration-200">
