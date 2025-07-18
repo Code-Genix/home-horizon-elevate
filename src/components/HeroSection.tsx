@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { MapPin, Search as SearchIcon } from "lucide-react"
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 const cities = [
   "Mumbai",
@@ -19,6 +20,12 @@ const cities = [
 const HeroSection = () => {
   const [selectedCity, setSelectedCity] = useState("");
   const [locality, setLocality] = useState("");
+  const navigate = useNavigate();
+
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    navigate("/properties");
+  };
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -99,6 +106,7 @@ const HeroSection = () => {
               type="submit"
               size="default"
               className="mx-auto mt-2 h-12 w-64 rounded-lg text-base font-inter font-semibold bg-gradient-to-r from-[#0A2342] to-[#2E8BC0] text-white shadow-md hover:from-[#163D5C] hover:to-[#2E8BC0] flex items-center justify-center gap-2 border-0"
+              onClick={handleSearch}
             >
               <SearchIcon className="h-5 w-5 mr-2" />
               Start Exploring

@@ -2,8 +2,15 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { MapPin, Bed, Bath, Square, Calendar } from "lucide-react"
+import { useNavigate } from "react-router-dom"
 
 const FeaturedProperties = () => {
+  const navigate = useNavigate();
+
+  const handleViewAllProperties = () => {
+    navigate("/properties");
+  };
+
   const properties = [
     {
       id: 1,
@@ -143,6 +150,7 @@ const FeaturedProperties = () => {
           <Button 
             size="lg" 
             className="px-8 py-4 bg-navy hover:bg-navy/90 text-white font-inter font-medium rounded-xl"
+            onClick={handleViewAllProperties}
           >
             View All Properties
           </Button>

@@ -10,11 +10,8 @@ const mockProperties = [
     id: 1,
     images: [
       "/Rohan%20Ekum/rohan-ekam-society-img1.jpg",
-      "/Rohan%20Ekum/rohan-ekam-balcony.jpg",
-      "/Rohan%20Ekum/rohan-ekam-bedroom.jpg",
-      "/Rohan%20Ekum/rohan-ekam-kitchen.jpg",
       "/Rohan%20Ekum/rohan-ekam-living-room.jpg",
-      "/Rohan%20Ekum/rohan-ekam-society-img2.jpg"
+      "/Rohan%20Ekum/rohan-ekam-kitchen.jpg"
     ],
     title: "Rohan Ekam Balewadi",
     location: "Balewadi, Pune",
