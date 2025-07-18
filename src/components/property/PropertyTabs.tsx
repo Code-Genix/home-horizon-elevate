@@ -44,7 +44,7 @@ const PropertyTabs = ({ property, onAuthRequired, isAuthenticated }: PropertyTab
         <TabsTrigger value="floorplans">Floor Plans</TabsTrigger>
         <TabsTrigger value="pricing">Pricing</TabsTrigger>
         <TabsTrigger value="units">Units</TabsTrigger>
-        <TabsTrigger value="gallery">Photos</TabsTrigger>
+        <TabsTrigger value="gallery">Gallery</TabsTrigger>
       </TabsList>
 
       <TabsContent value="overview" className="space-y-6">
