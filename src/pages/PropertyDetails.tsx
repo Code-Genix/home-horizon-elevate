@@ -323,7 +323,30 @@ const PropertyDetails = () => {
         </section>
 
         {/* Partner Banks Section */}
-        <PartnerBanks banks={property.partnerBanks} />
+        <section className="space-y-6">
+          <h2 className="text-2xl font-bold">Partner Banks</h2>
+          <div className="bg-card rounded-lg border p-6">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
+              {property.partnerBanks.map((bank, index) => (
+                <div key={index} className="flex items-center space-x-3 p-3 rounded-lg bg-background">
+                  <div className="w-8 h-8 flex items-center justify-center">
+                    <img src={bank.logo} alt={bank.name} className="w-8 h-8 object-contain" />
+                  </div>
+                  <div>
+                    <p className="font-medium text-sm">{bank.name}</p>
+                    {bank.preApproved && <Badge variant="secondary" className="text-xs mt-1">Pre-approved</Badge>}
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="text-center">
+              <Button>
+                <Phone className="w-4 h-4 mr-2" />
+                Talk to Our Loan Advisor
+              </Button>
+            </div>
+          </div>
+        </section>
 
         <AboutBuilder builder={property.builder} />
         <FaqAccordion />
