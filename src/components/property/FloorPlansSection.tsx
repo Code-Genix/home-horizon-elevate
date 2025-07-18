@@ -40,14 +40,6 @@ const FloorPlansSection = ({ isAuthenticated, onAuthRequired }: FloorPlansSectio
     }
   ];
 
-  const handleFloorPlanClick = () => {
-    if (!isAuthenticated) {
-      onAuthRequired();
-      return;
-    }
-    setActiveTab("floor-plan");
-  };
-
   return (
     <section id="floor-plans" className="space-y-6">
       <div className="flex items-center justify-between">
@@ -71,18 +63,14 @@ const FloorPlansSection = ({ isAuthenticated, onAuthRequired }: FloorPlansSectio
           Master Plan
         </button>
         <button
-          onClick={handleFloorPlanClick}
-          className={`px-6 py-2 rounded-md text-sm font-medium transition-colors relative ${
-            activeTab === "floor-plan" && isAuthenticated
+          onClick={() => setActiveTab("floor-plan")}
+          className={`px-6 py-2 rounded-md text-sm font-medium transition-colors ${
+            activeTab === "floor-plan"
               ? "bg-background text-foreground shadow-sm" 
               : "text-muted-foreground hover:text-foreground"
-          } ${!isAuthenticated ? "cursor-pointer" : ""}`}
-          title={!isAuthenticated ? "Sign up to view floor plans" : ""}
+          }`}
         >
-          <span className="flex items-center">
-            Floor Plan
-            {!isAuthenticated && <Lock className="w-3 h-3 ml-2" />}
-          </span>
+          Floor Plan
         </button>
       </div>
 
