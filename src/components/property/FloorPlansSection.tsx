@@ -44,10 +44,6 @@ const FloorPlansSection = ({ isAuthenticated, onAuthRequired }: FloorPlansSectio
     <section id="floor-plans" className="space-y-6">
       <div className="flex items-center justify-between">
         <h2 className="text-2xl font-bold">Floor Plans</h2>
-        <Button variant="outline" className="bg-green-600 hover:bg-green-700 text-white border-green-600">
-          <Download className="w-4 h-4 mr-2" />
-          Plan Kit
-        </Button>
       </div>
 
       {/* Tab Navigation */}

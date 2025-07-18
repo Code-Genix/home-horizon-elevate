@@ -75,7 +75,7 @@ const AboutBuilder = ({ builder }: AboutBuilderProps) => {
                   {project.location}
                 </p>
                 <p className="text-sm font-medium text-primary">{project.price}</p>
-                <Button variant="outline" size="sm" className="w-full">
+                <Button variant="default" size="sm" className="w-full">
                   <ExternalLink className="w-3 h-3 mr-2" />
                   View Details
                 </Button>

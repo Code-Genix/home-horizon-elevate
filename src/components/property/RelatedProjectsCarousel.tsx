@@ -103,7 +103,7 @@ const RelatedProjectsCarousel = () => {
                       <p className="text-sm text-muted-foreground">{project.bhk}</p>
                     </div>
                     
-                    <Button variant="outline" className="w-full">
+                    <Button variant="default" className="w-full">
                       <ExternalLink className="w-4 h-4 mr-2" />
                       Explore
                     </Button>

@@ -44,7 +44,7 @@ const PropertyTabs = ({ property, onAuthRequired, isAuthenticated }: PropertyTab
         <TabsTrigger value="floorplans">Floor Plans</TabsTrigger>
         <TabsTrigger value="pricing">Pricing</TabsTrigger>
         <TabsTrigger value="units">Units</TabsTrigger>
-        <TabsTrigger value="gallery">Gallery</TabsTrigger>
+        <TabsTrigger value="gallery">Photos</TabsTrigger>
       </TabsList>
 
       <TabsContent value="overview" className="space-y-6">
@@ -227,8 +227,8 @@ const PropertyTabs = ({ property, onAuthRequired, isAuthenticated }: PropertyTab
       <TabsContent value="gallery" className="space-y-6">
         <Card>
           <CardHeader>
-            <CardTitle>Photos & Videos</CardTitle>
-            <CardDescription>Project gallery, site visits, and virtual tours</CardDescription>
+            <CardTitle>Photos</CardTitle>
+            <CardDescription>Project gallery and site visits</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
@@ -239,11 +239,6 @@ const PropertyTabs = ({ property, onAuthRequired, isAuthenticated }: PropertyTab
                     alt={`Gallery ${index + 1}`}
                     className="w-full h-full object-cover"
                   />
-                  {index === 5 && (
-                    <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
-                      <Play className="w-8 h-8 text-white" />
-                    </div>
-                  )}
                 </div>
               ))}
             </div>

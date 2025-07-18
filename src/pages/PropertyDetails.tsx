@@ -11,6 +11,7 @@ import AboutBuilder from "@/components/property/AboutBuilder";
 import FaqAccordion from "@/components/property/FaqAccordion";
 import RelatedProjectsCarousel from "@/components/property/RelatedProjectsCarousel";
 import FloorPlansSection from "@/components/property/FloorPlansSection";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
 
 // Mock property data
 const getPropertyData = (id: string) => ({
@@ -72,6 +73,8 @@ const PropertyDetails = () => {
   const [showMasterPlan, setShowMasterPlan] = useState(true);
   const [activeSection, setActiveSection] = useState("overview");
   const [selectedImage, setSelectedImage] = useState(0);
+  const [photoModalOpen, setPhotoModalOpen] = useState(false);
+  const [modalPhotoIndex, setModalPhotoIndex] = useState(0);
 
   const property = getPropertyData(id || "1");
 
@@ -305,16 +308,15 @@ const PropertyDetails = () => {
 
         {/* Gallery Section */}
         <section id="gallery" className="space-y-6">
-          <h2 className="text-2xl font-bold">Photos & Videos</h2>
+          <h2 className="text-2xl font-bold">Photos</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {property.images.slice(0, 7).map((image, index) => (
-              <div key={index} className="aspect-square rounded-lg overflow-hidden relative group cursor-pointer">
+              <div
+                key={index}
+                className="aspect-square rounded-lg overflow-hidden relative group cursor-pointer"
+                onClick={() => { setPhotoModalOpen(true); setModalPhotoIndex(index); }}
+              >
                 <img src={image} alt="" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-                {index === 3 && (
-                  <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
-                    <Play className="w-8 h-8 text-white" />
-                  </div>
-                )}
               </div>
             ))}
             <div className="aspect-square rounded-lg border-2 border-dashed border-muted-foreground/30 flex items-center justify-center text-muted-foreground">
@@ -324,6 +326,35 @@ const PropertyDetails = () => {
               </div>
             </div>
           </div>
+          {/* Photo Modal */}
+          <Dialog open={photoModalOpen} onOpenChange={setPhotoModalOpen}>
+            <DialogContent className="max-w-3xl flex flex-col items-center">
+              <div className="relative w-full flex items-center justify-center">
+                <button
+                  className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 hover:bg-white rounded-full p-2 shadow"
+                  onClick={() => setModalPhotoIndex((modalPhotoIndex - 1 + property.images.length) % property.images.length)}
+                  aria-label="Previous photo"
+                >
+                  <ChevronRight className="w-6 h-6 rotate-180" />
+                </button>
+                <img
+                  src={property.images[modalPhotoIndex]}
+                  alt="Large Property Photo"
+                  className="max-h-[70vh] w-auto rounded-lg object-contain mx-auto"
+                />
+                <button
+                  className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 hover:bg-white rounded-full p-2 shadow"
+                  onClick={() => setModalPhotoIndex((modalPhotoIndex + 1) % property.images.length)}
+                  aria-label="Next photo"
+                >
+                  <ChevronRight className="w-6 h-6" />
+                </button>
+              </div>
+              <div className="mt-2 text-center text-muted-foreground text-sm">
+                {modalPhotoIndex + 1} / {property.images.length}
+              </div>
+            </DialogContent>
+          </Dialog>
         </section>
 
         {/* Partner Banks Section */}
