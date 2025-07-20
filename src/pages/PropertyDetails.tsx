@@ -145,17 +145,17 @@ const PropertyDetails = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Breadcrumbs */}
+      {/* Breadcrumbs - Improved mobile responsiveness */}
       <div className="bg-card border-b">
-        <div className="container mx-auto px-4 py-3">
-          <nav className="flex items-center space-x-2 text-sm text-muted-foreground overflow-x-auto">
+        <div className="container mx-auto px-3 sm:px-4 py-2 sm:py-3">
+          <nav className="flex items-center space-x-1 sm:space-x-2 text-xs sm:text-sm text-muted-foreground overflow-x-auto scrollbar-hide">
             {breadcrumbs.map((crumb, index) => (
-              <div key={index} className="flex items-center space-x-2 flex-shrink-0">
-                {index === 0 && <Home className="w-4 h-4" />}
-                <span className={index === breadcrumbs.length - 1 ? "text-foreground font-medium" : "hover:text-foreground cursor-pointer"}>
+              <div key={index} className="flex items-center space-x-1 sm:space-x-2 flex-shrink-0">
+                {index === 0 && <Home className="w-3 h-3 sm:w-4 sm:h-4" />}
+                <span className={`${index === breadcrumbs.length - 1 ? "text-foreground font-medium" : "hover:text-foreground cursor-pointer"} truncate max-w-[80px] sm:max-w-none`}>
                   {crumb.label}
                 </span>
-                {index < breadcrumbs.length - 1 && <ChevronRight className="w-4 h-4" />}
+                {index < breadcrumbs.length - 1 && <ChevronRight className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />}
               </div>
             ))}
           </nav>
@@ -169,15 +169,15 @@ const PropertyDetails = () => {
         isAuthenticated={isAuthenticated}
       />
 
-      {/* Sticky Navigation */}
+      {/* Sticky Navigation - Improved mobile responsiveness */}
       <div className="sticky top-0 z-40 bg-background/95 backdrop-blur border-b">
-        <div className="container mx-auto px-4">
-          <nav className="flex space-x-4 sm:space-x-8 overflow-x-auto">
+        <div className="container mx-auto px-3 sm:px-4">
+          <nav className="flex space-x-2 sm:space-x-4 md:space-x-8 overflow-x-auto scrollbar-hide">
             {navigationSections.map((section) => (
               <button
                 key={section.id}
                 onClick={() => scrollToSection(section.id)}
-                className={`py-3 sm:py-4 px-2 text-sm font-medium border-b-2 transition-colors whitespace-nowrap flex-shrink-0 ${
+                className={`py-2 sm:py-3 md:py-4 px-1 sm:px-2 text-xs sm:text-sm font-medium border-b-2 transition-colors whitespace-nowrap flex-shrink-0 ${
                   activeSection === section.id
                     ? "border-primary text-primary"
                     : "border-transparent text-muted-foreground hover:text-foreground"
@@ -190,12 +190,12 @@ const PropertyDetails = () => {
         </div>
       </div>
 
-      {/* Content Sections */}
-      <div className="container mx-auto px-4 py-6 sm:py-8 space-y-12 sm:space-y-16">
+      {/* Content Sections - Improved mobile responsiveness */}
+      <div className="container mx-auto px-3 sm:px-4 py-4 sm:py-6 md:py-8 space-y-8 sm:space-y-12 md:space-y-16">
         
         {/* Overview Section */}
-        <section id="overview" className="space-y-4 sm:space-y-6">
-          <h2 className="text-xl sm:text-2xl font-bold">Project Overview</h2>
+        <section id="overview" className="space-y-3 sm:space-y-4 md:space-y-6">
+          <h2 className="text-lg sm:text-xl md:text-2xl font-bold">Project Overview</h2>
           <div className="prose prose-neutral max-w-none">
             <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">
               {property.overview}
@@ -203,14 +203,14 @@ const PropertyDetails = () => {
           </div>
         </section>
 
-        {/* Amenities Section */}
-        <section id="amenities" className="space-y-4 sm:space-y-6">
-          <h2 className="text-xl sm:text-2xl font-bold">Amenities & Facilities</h2>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
+        {/* Amenities Section - Improved grid responsiveness */}
+        <section id="amenities" className="space-y-3 sm:space-y-4 md:space-y-6">
+          <h2 className="text-lg sm:text-xl md:text-2xl font-bold">Amenities & Facilities</h2>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-3 md:gap-4">
             {property.amenities.map((amenity, index) => (
-              <div key={index} className="bg-card p-3 sm:p-4 rounded-lg border text-center hover:shadow-md transition-shadow">
-                <div className="text-xl sm:text-2xl mb-2">{amenity.icon}</div>
-                <p className="text-xs sm:text-sm font-medium">{amenity.name}</p>
+              <div key={index} className="bg-card p-2 sm:p-3 md:p-4 rounded-lg border text-center hover:shadow-md transition-shadow">
+                <div className="text-lg sm:text-xl md:text-2xl mb-1 sm:mb-2">{amenity.icon}</div>
+                <p className="text-xs sm:text-sm font-medium leading-tight">{amenity.name}</p>
               </div>
             ))}
           </div>
@@ -222,11 +222,40 @@ const PropertyDetails = () => {
           onAuthRequired={handleAuthRequired}
         />
 
-        {/* Pricing Section */}
-        <section id="pricing" className="space-y-4 sm:space-y-6">
-          <h2 className="text-xl sm:text-2xl font-bold">Pricing</h2>
+        {/* Pricing Section - Improved mobile table */}
+        <section id="pricing" className="space-y-3 sm:space-y-4 md:space-y-6">
+          <h2 className="text-lg sm:text-xl md:text-2xl font-bold">Pricing</h2>
           <div className="bg-card rounded-lg border overflow-hidden">
-            <div className="overflow-x-auto">
+            {/* Mobile card layout for small screens */}
+            <div className="block sm:hidden">
+              {property.units.map((item, index) => (
+                <div key={index} className="p-3 border-b last:border-b-0">
+                  <div className="flex justify-between items-start mb-2">
+                    <div>
+                      <p className="font-medium text-sm">{item.type}</p>
+                      <p className="text-xs text-muted-foreground">{item.area}</p>
+                    </div>
+                    <Badge variant="secondary" className="bg-green-100 text-green-800 text-xs">
+                      <Check className="w-3 h-3 mr-1" />
+                      Available
+                    </Badge>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    {item.locked && !isAuthenticated ? (
+                      <div className="flex items-center space-x-2">
+                        <span className="text-muted-foreground text-sm">Hidden</span>
+                        <Eye className="w-4 h-4 text-muted-foreground" />
+                      </div>
+                    ) : (
+                      <span className="font-medium text-sm">{item.price}</span>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+            
+            {/* Desktop table layout */}
+            <div className="hidden sm:block overflow-x-auto">
               <table className="w-full">
                 <thead className="bg-muted/50">
                   <tr>
@@ -262,12 +291,13 @@ const PropertyDetails = () => {
                 </tbody>
               </table>
             </div>
+            
             <div className="p-3 sm:p-4 border-t bg-muted/25">
-              <div className="flex flex-col sm:flex-row gap-3">
-                <Button variant="outline" size="sm" onClick={handleAuthRequired}>
+              <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
+                <Button variant="outline" size="sm" onClick={handleAuthRequired} className="w-full sm:w-auto">
                   Sign In to Unlock Full Pricing
                 </Button>
-                <Button variant="outline" size="sm">
+                <Button variant="outline" size="sm" className="w-full sm:w-auto">
                   <Download className="w-4 h-4 mr-2" />
                   Download Cost Sheet
                 </Button>
@@ -276,48 +306,52 @@ const PropertyDetails = () => {
           </div>
         </section>
 
-        {/* Units Section */}
-        <section id="units" className="space-y-4 sm:space-y-6">
-          <h2 className="text-xl sm:text-2xl font-bold">Unit Availability</h2>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
+        {/* Units Section - Improved grid responsiveness */}
+        <section id="units" className="space-y-3 sm:space-y-4 md:space-y-6">
+          <h2 className="text-lg sm:text-xl md:text-2xl font-bold">Unit Availability</h2>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 sm:gap-3 md:gap-4">
             {["A103", "B207", "C145", "D089"].map((unit, index) => (
-              <div key={index} className="bg-card p-3 sm:p-4 rounded-lg border text-center">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-muted rounded-lg flex items-center justify-center mx-auto mb-2">
-                  <span className="text-base sm:text-lg">📱</span>
+              <div key={index} className="bg-card p-2 sm:p-3 md:p-4 rounded-lg border text-center">
+                <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-muted rounded-lg flex items-center justify-center mx-auto mb-1 sm:mb-2">
+                  <span className="text-sm sm:text-base md:text-lg">📱</span>
                 </div>
-                <p className="font-medium text-sm">{unit}</p>
+                <p className="font-medium text-xs sm:text-sm">{unit}</p>
                 <p className="text-xs text-muted-foreground">2BHK</p>
               </div>
             ))}
             {/* Blurred unit cards */}
             {["E156", "F201", "G089", "H134"].map((unit, index) => (
-              <div key={index} className="bg-card p-3 sm:p-4 rounded-lg border text-center opacity-50 blur-sm">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-muted rounded-lg flex items-center justify-center mx-auto mb-2">
-                  <span className="text-base sm:text-lg">📱</span>
+              <div key={index} className="bg-card p-2 sm:p-3 md:p-4 rounded-lg border text-center opacity-50 blur-sm">
+                <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-muted rounded-lg flex items-center justify-center mx-auto mb-1 sm:mb-2">
+                  <span className="text-sm sm:text-base md:text-lg">📱</span>
                 </div>
-                <p className="font-medium text-sm">{unit}</p>
+                <p className="font-medium text-xs sm:text-sm">{unit}</p>
                 <p className="text-xs text-muted-foreground">3BHK</p>
               </div>
             ))}
           </div>
           <div className="text-center">
-            <Button variant="outline" size="sm" onClick={handleAuthRequired}>
+            <Button variant="outline" size="sm" onClick={handleAuthRequired} className="w-full sm:w-auto">
               Unlock All Units
             </Button>
           </div>
         </section>
 
-        {/* Gallery Section */}
-        <section id="gallery" className="space-y-4 sm:space-y-6">
-          <h2 className="text-xl sm:text-2xl font-bold">Photos</h2>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
+        {/* Gallery Section - Improved responsive grid */}
+        <section id="gallery" className="space-y-3 sm:space-y-4 md:space-y-6">
+          <h2 className="text-lg sm:text-xl md:text-2xl font-bold">Photos</h2>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-3 md:gap-4">
             {property.images.slice(0, 7).map((image, index) => (
               <div
                 key={index}
                 className="aspect-square rounded-lg overflow-hidden relative group cursor-pointer"
                 onClick={() => { setPhotoModalOpen(true); setModalPhotoIndex(index); }}
               >
-                <img src={image} alt="" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                <img 
+                  src={image} 
+                  alt={`${property.name} - Photo ${index + 1}`} 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" 
+                />
               </div>
             ))}
             <div className="aspect-square rounded-lg border-2 border-dashed border-muted-foreground/30 flex items-center justify-center text-muted-foreground">
@@ -327,31 +361,32 @@ const PropertyDetails = () => {
               </div>
             </div>
           </div>
-          {/* Photo Modal */}
+          
+          {/* Photo Modal - Improved mobile responsiveness */}
           <Dialog open={photoModalOpen} onOpenChange={setPhotoModalOpen}>
-            <DialogContent className="max-w-3xl flex flex-col items-center">
+            <DialogContent className="max-w-[95vw] sm:max-w-3xl flex flex-col items-center p-2 sm:p-6">
               <div className="relative w-full flex items-center justify-center">
                 <button
-                  className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 hover:bg-white rounded-full p-2 shadow"
+                  className="absolute left-1 sm:left-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 hover:bg-white rounded-full p-1 sm:p-2 shadow"
                   onClick={() => setModalPhotoIndex((modalPhotoIndex - 1 + property.images.length) % property.images.length)}
                   aria-label="Previous photo"
                 >
-                  <ChevronRight className="w-6 h-6 rotate-180" />
+                  <ChevronRight className="w-4 h-4 sm:w-6 sm:h-6 rotate-180" />
                 </button>
                 <img
                   src={property.images[modalPhotoIndex]}
                   alt="Large Property Photo"
-                  className="max-h-[70vh] w-auto rounded-lg object-contain mx-auto"
+                  className="max-h-[60vh] sm:max-h-[70vh] w-auto rounded-lg object-contain mx-auto"
                 />
                 <button
-                  className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 hover:bg-white rounded-full p-2 shadow"
+                  className="absolute right-1 sm:right-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 hover:bg-white rounded-full p-1 sm:p-2 shadow"
                   onClick={() => setModalPhotoIndex((modalPhotoIndex + 1) % property.images.length)}
                   aria-label="Next photo"
                 >
-                  <ChevronRight className="w-6 h-6" />
+                  <ChevronRight className="w-4 h-4 sm:w-6 sm:h-6" />
                 </button>
               </div>
-              <div className="mt-2 text-center text-muted-foreground text-sm">
+              <div className="mt-2 text-center text-muted-foreground text-xs sm:text-sm">
                 {modalPhotoIndex + 1} / {property.images.length}
               </div>
             </DialogContent>
