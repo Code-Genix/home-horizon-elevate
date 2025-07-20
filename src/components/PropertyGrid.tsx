@@ -25,9 +25,9 @@ const mockProperties = [
   {
     id: 2,
     images: [
+      "/bonheur-by-engineers-horizon-img1.jpg",
       "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800",
-      "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800",
-      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800"
+      "/bonheur-by-engineers-horizon-img2.jpg"
     ],
     title: "Bonheur by Engineers Horizon",
     location: "Wakad, Pune",
@@ -41,9 +41,9 @@ const mockProperties = [
   {
     id: 3,
     images: [
-      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800",
-      "https://images.unsplash.com/photo-1493397212122-2b85dda8106b?w=800",
-      "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800"
+      "/32-pinewood-drive-img1.jpg",
+      "/32-pinewood-drive-img2.jpg",
+      "/32-pinewood-drive-img3.jpg"
     ],
     title: "32 Pinewood Drive",
     location: "Hinjawadi, Pune",
@@ -57,9 +57,9 @@ const mockProperties = [
   {
     id: 4,
     images: [
-      "https://images.unsplash.com/photo-1488972685288-c3fd157d7c7a?w=800",
-      "https://images.unsplash.com/photo-1496307653780-42ee777d4833?w=800",
-      "https://images.unsplash.com/photo-1459767129954-1b1c1f9b9ace?w=800"
+      "/aneesha-by-yugal-maheshwari-img2.jpg",
+      "/aneesha-by-yugal-maheshwari-img3.jpg",
+      "/aneesha-by-yugal-maheshwari-img1.jpg"
     ],
     title: "Aneesha by Yugal & Maheshwari",
     location: "Baner, Pune",
@@ -73,9 +73,9 @@ const mockProperties = [
   {
     id: 5,
     images: [
-      "https://images.unsplash.com/photo-1524230572899-a752b3835840?w=800",
-      "https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=800",
-      "https://images.unsplash.com/photo-1433832597046-4f10e10ac764?w=800"
+      "/majestic-towers-img1.jpg",
+      "/majestic-towers-img2.jpg",
+      "/majestic-towers-img3.jpg"
     ],
     title: "Majestique Towers",
     location: "Kharadi, Pune",
@@ -89,9 +89,9 @@ const mockProperties = [
   {
     id: 6,
     images: [
-      "https://images.unsplash.com/photo-1551038247-3d9af20df552?w=800",
-      "https://images.unsplash.com/photo-1492321936769-b49830bc1d1e?w=800",
-      "https://images.unsplash.com/photo-1721322800607-8c38375eef04?w=800"
+      "/45-paramount-img1.jpg",
+      "/45-paramount-img2.jpg",
+      "/45-paramount-img3.jpg"
     ],
     title: "45 Paramount",
     location: "Koregaon Park, Pune",
