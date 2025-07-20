@@ -4,7 +4,7 @@ import { Pagination, PaginationContent, PaginationItem, PaginationLink, Paginati
 import { Button } from "@/components/ui/button";
 import { Bell, Bookmark } from "lucide-react";
 
-// Mock property data
+// Real property data
 const mockProperties = [
   {
     id: 1,
@@ -24,62 +24,82 @@ const mockProperties = [
   },
   {
     id: 2,
-    images: ["https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800"],
-    title: "Pristine Towers",
+    images: [
+      "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800",
+      "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800",
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800"
+    ],
+    title: "Bonheur by Engineers Horizon",
     location: "Wakad, Pune",
-    price: "₹78 Lakhs – ₹1.2 Cr",
-    bhkOptions: "1BHK / 2BHK",
-    carpetArea: "650–900 sq.ft.",
+    price: "₹85 L – ₹1.4 Cr",
+    bhkOptions: "1BHK / 2BHK / 3BHK",
+    carpetArea: "650–1100 sq.ft.",
     possession: "Ready to Move",
-    tags: ["Hot Deal"],
+    tags: ["Ready to Move", "RERA Approved"],
     isPremium: true
   },
   {
     id: 3,
-    images: ["https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800"],
-    title: "Green Valley Residency",
+    images: [
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800",
+      "https://images.unsplash.com/photo-1493397212122-2b85dda8106b?w=800",
+      "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800"
+    ],
+    title: "32 Pinewood Drive",
     location: "Hinjawadi, Pune",
-    price: "₹95 Lakhs – ₹1.8 Cr",
+    price: "₹1.2 Cr – ₹2.1 Cr",
     bhkOptions: "2BHK / 3BHK",
-    carpetArea: "850–1200 sq.ft.",
-    possession: "Possession by Dec 2025",
-    tags: ["New Launch"],
-    isPremium: false
+    carpetArea: "900–1350 sq.ft.",
+    possession: "Ready to Move",
+    tags: ["Premium Location", "Modern Design"],
+    isPremium: true
   },
   {
     id: 4,
-    images: ["https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800"],
-    title: "Skyline Heights",
+    images: [
+      "https://images.unsplash.com/photo-1488972685288-c3fd157d7c7a?w=800",
+      "https://images.unsplash.com/photo-1496307653780-42ee777d4833?w=800",
+      "https://images.unsplash.com/photo-1459767129954-1b1c1f9b9ace?w=800"
+    ],
+    title: "Aneesha by Yugal & Maheshwari",
     location: "Baner, Pune",
-    price: "₹1.2 Cr – ₹2.5 Cr",
-    bhkOptions: "3BHK / 4BHK",
-    carpetArea: "1100–1800 sq.ft.",
+    price: "₹1.8 Cr – ₹3.2 Cr",
+    bhkOptions: "3BHK / 3.5BHK",
+    carpetArea: "1400–1800 sq.ft.",
     possession: "Ready to Move",
-    tags: [],
+    tags: ["Luxury", "Premium Location"],
     isPremium: true
   },
   {
     id: 5,
-    images: ["https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800"],
-    title: "Sunshine Apartments",
+    images: [
+      "https://images.unsplash.com/photo-1524230572899-a752b3835840?w=800",
+      "https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=800",
+      "https://images.unsplash.com/photo-1433832597046-4f10e10ac764?w=800"
+    ],
+    title: "Majestique Towers",
     location: "Kharadi, Pune",
-    price: "₹65 Lakhs – ₹95 Lakhs",
-    bhkOptions: "1BHK / 2BHK",
-    carpetArea: "580–750 sq.ft.",
-    possession: "Possession by Mar 2025",
-    tags: ["Hot Deal"],
+    price: "₹99 L – ₹1.55 Cr",
+    bhkOptions: "2BHK / 3BHK",
+    carpetArea: "826–1064 sq.ft.",
+    possession: "Ready to Move",
+    tags: ["Hot Deal", "RERA Approved"],
     isPremium: false
   },
   {
     id: 6,
-    images: ["https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800"],
-    title: "Elite Residences",
+    images: [
+      "https://images.unsplash.com/photo-1551038247-3d9af20df552?w=800",
+      "https://images.unsplash.com/photo-1492321936769-b49830bc1d1e?w=800",
+      "https://images.unsplash.com/photo-1721322800607-8c38375eef04?w=800"
+    ],
+    title: "45 Paramount",
     location: "Koregaon Park, Pune",
-    price: "₹1.8 Cr – ₹3.2 Cr",
+    price: "₹2.5 Cr – ₹4.8 Cr",
     bhkOptions: "3BHK / 4BHK+",
-    carpetArea: "1400–2200 sq.ft.",
+    carpetArea: "1800–2500 sq.ft.",
     possession: "Ready to Move",
-    tags: ["Premium"],
+    tags: ["Ultra Luxury", "Premium"],
     isPremium: true
   }
 ];
