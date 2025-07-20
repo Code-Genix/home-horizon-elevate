@@ -8,9 +8,18 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 
+interface PropertyFilters {
+  priceRange: [number, number];
+  bhkTypes: string[];
+  possessionStatus: string;
+  downPayment: number;
+  projectTypes: string[];
+  sortBy: string;
+}
+
 interface FiltersSidebarProps {
-  filters: any;
-  onFiltersChange: (filters: any) => void;
+  filters: PropertyFilters;
+  onFiltersChange: (filters: PropertyFilters) => void;
   isMobile?: boolean;
 }
 
@@ -70,7 +79,7 @@ const FiltersSidebar = ({ filters, onFiltersChange, isMobile = false }: FiltersS
           <CardContent className="space-y-4">
             <Slider
               value={filters.priceRange}
-              onValueChange={(value) => onFiltersChange({ ...filters, priceRange: value })}
+              onValueChange={(value) => onFiltersChange({ ...filters, priceRange: value as [number, number] })}
               max={50000000}
               min={500000}
               step={100000}

@@ -52,7 +52,7 @@ const GetLocationModal = ({ open, onOpenChange, property, onSignInClick }: GetLo
               <p className="text-sm text-muted-foreground">Full Address</p>
               <div className="flex items-center">
                 <p className="text-sm text-muted-foreground blur-sm">
-                  Plot No. XXX, Sector X, {property.location} - XXXXXX
+                  Plot No. [Hidden], Sector [Hidden], {property.location} - [Hidden]
                 </p>
                 <Lock className="w-3 h-3 ml-2 text-muted-foreground" />
               </div>

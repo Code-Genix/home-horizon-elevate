@@ -4,6 +4,15 @@ import { Pagination, PaginationContent, PaginationItem, PaginationLink, Paginati
 import { Button } from "@/components/ui/button";
 import { Bell, Bookmark } from "lucide-react";
 
+interface PropertyFilters {
+  priceRange: [number, number];
+  bhkTypes: string[];
+  possessionStatus: string;
+  downPayment: number;
+  projectTypes: string[];
+  sortBy: string;
+}
+
 // Real property data
 const mockProperties = [
   {
@@ -105,7 +114,7 @@ const mockProperties = [
 ];
 
 interface PropertyGridProps {
-  filters: any;
+  filters: PropertyFilters;
 }
 
 const PropertyGrid = ({ filters }: PropertyGridProps) => {

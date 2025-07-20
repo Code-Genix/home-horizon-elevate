@@ -17,8 +17,22 @@ import {
   Play
 } from "lucide-react";
 
+interface PropertyUnit {
+  type: string;
+  area: string;
+  price: string;
+  available: number;
+  locked: boolean;
+}
+
+interface Property {
+  overview: string;
+  amenities: string[];
+  units: PropertyUnit[];
+}
+
 interface PropertyTabsProps {
-  property: any;
+  property: Property;
   onAuthRequired: () => void;
   isAuthenticated: boolean;
 }
@@ -140,7 +154,7 @@ const PropertyTabs = ({ property, onAuthRequired, isAuthenticated }: PropertyTab
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {property.units.map((unit: any, index: number) => (
+                {property.units.map((unit: PropertyUnit, index: number) => (
                   <TableRow key={unit.type}>
                     <TableCell>{unit.type}</TableCell>
                     <TableCell>{unit.area}</TableCell>

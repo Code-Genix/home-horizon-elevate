@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, type CarouselApi } from "@/components/ui/carousel";
 import { MapPin, Phone, Calendar, Shield, Eye, EyeOff } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -23,7 +23,7 @@ interface PropertyHeaderProps {
 const PropertyHeader = ({ property, onLocationClick, onAuthRequired, isAuthenticated }: PropertyHeaderProps) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [showFullPrice, setShowFullPrice] = useState(isAuthenticated);
-  const [carouselApi, setCarouselApi] = useState<any>(null);
+  const [carouselApi, setCarouselApi] = useState<CarouselApi | null>(null);
 
   // Update currentImageIndex when carousel slides change
   useEffect(() => {

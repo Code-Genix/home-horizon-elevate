@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { useParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -86,14 +86,14 @@ const PropertyDetails = () => {
     { label: property.name, href: "#" }
   ];
 
-  const navigationSections = [
+  const navigationSections = useMemo(() => [
     { id: "overview", label: "Overview" },
     { id: "amenities", label: "Amenities" },
     { id: "floor-plans", label: "Floor Plans" },
     { id: "pricing", label: "Pricing" },
     { id: "units", label: "Units" },
     { id: "gallery", label: "Gallery" }
-  ];
+  ], []);
 
   const scrollToSection = (sectionId: string) => {
     setActiveSection(sectionId);
@@ -127,7 +127,7 @@ const PropertyDetails = () => {
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [navigationSections]);
 
   const handleLocationClick = () => {
     setShowLocationModal(true);
