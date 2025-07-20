@@ -11,9 +11,10 @@ import { Separator } from "@/components/ui/separator";
 interface FiltersSidebarProps {
   filters: any;
   onFiltersChange: (filters: any) => void;
+  isMobile?: boolean;
 }
 
-const FiltersSidebar = ({ filters, onFiltersChange }: FiltersSidebarProps) => {
+const FiltersSidebar = ({ filters, onFiltersChange, isMobile = false }: FiltersSidebarProps) => {
   const formatPrice = (price: number) => {
     if (price >= 10000000) return `₹${(price / 10000000).toFixed(1)}Cr`;
     if (price >= 100000) return `₹${(price / 100000).toFixed(1)}L`;
@@ -51,7 +52,7 @@ const FiltersSidebar = ({ filters, onFiltersChange }: FiltersSidebarProps) => {
   };
 
   return (
-    <aside className="w-80 p-6 bg-card border-r border-border h-screen sticky top-20 overflow-y-auto">
+    <aside className={`${isMobile ? 'w-full p-4' : 'w-80 p-6 bg-card border-r border-border h-screen sticky top-20 overflow-y-auto'}`}>
       <div className="space-y-6">
         {/* Header */}
         <div className="flex items-center justify-between">

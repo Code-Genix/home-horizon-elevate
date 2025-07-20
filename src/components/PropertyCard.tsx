@@ -44,7 +44,7 @@ const PropertyCard = ({ property }: PropertyCardProps) => {
       initial={{ opacity: 0, y: 40 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
-      whileHover={{ scale: 1.04 }}
+      whileHover={{ scale: 1.02 }}
       className="h-full"
     >
       <Link to={`/property/${property.id}`} className="block h-full group" tabIndex={-1}>
@@ -56,18 +56,18 @@ const PropertyCard = ({ property }: PropertyCardProps) => {
               style={{ backgroundImage: `url(${property.images[currentImageIndex]})` }}
             >
               {/* Tags */}
-              <div className="absolute top-4 left-4 flex flex-wrap gap-2">
+              <div className="absolute top-3 sm:top-4 left-3 sm:left-4 flex flex-wrap gap-1 sm:gap-2">
                 {property.tags.map((tag) => {
                   // If the tag is 'Premium' and isPremium is true, skip rendering this tag to avoid duplicate badge
                   if (tag.toLowerCase() === "premium" && property.isPremium) return null;
                   return (
-                    <Badge key={tag} className={getTagColor(tag)}>
+                    <Badge key={tag} className={cn(getTagColor(tag), "text-xs")}>
                       {tag}
                     </Badge>
                   );
                 })}
                 {property.isPremium && (
-                  <Badge className="bg-gold text-foreground">Premium</Badge>
+                  <Badge className="bg-gold text-foreground text-xs">Premium</Badge>
                 )}
               </div>
 
@@ -75,12 +75,12 @@ const PropertyCard = ({ property }: PropertyCardProps) => {
               <Button
                 variant="ghost"
                 size="icon"
-                className="absolute top-4 right-4 bg-white/90 hover:bg-white"
+                className="absolute top-3 sm:top-4 right-3 sm:right-4 bg-white/90 hover:bg-white h-8 w-8 sm:h-10 sm:w-10"
                 onClick={e => { e.stopPropagation(); e.preventDefault(); setIsLiked(!isLiked); }}
               >
                 <Heart 
                   className={cn(
-                    "h-5 w-5 transition-colors",
+                    "h-4 w-4 sm:h-5 sm:w-5 transition-colors",
                     isLiked ? "fill-red-500 text-red-500" : "text-gray-600"
                   )} 
                 />
@@ -92,38 +92,38 @@ const PropertyCard = ({ property }: PropertyCardProps) => {
                   <Button
                     variant="ghost"
                     size="icon"
-                    className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white/90 opacity-0 group-hover:opacity-100 transition-opacity"
+                    className="absolute left-1 sm:left-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white/90 opacity-0 group-hover:opacity-100 transition-opacity h-8 w-8 sm:h-10 sm:w-10"
                     onClick={e => { 
                       e.stopPropagation(); 
                       e.preventDefault(); 
                       setCurrentImageIndex((currentImageIndex - 1 + property.images.length) % property.images.length);
                     }}
                   >
-                    <ChevronLeft className="h-4 w-4" />
+                    <ChevronLeft className="h-3 w-3 sm:h-4 sm:w-4" />
                   </Button>
                   <Button
                     variant="ghost"
                     size="icon"
-                    className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white/90 opacity-0 group-hover:opacity-100 transition-opacity"
+                    className="absolute right-1 sm:right-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white/90 opacity-0 group-hover:opacity-100 transition-opacity h-8 w-8 sm:h-10 sm:w-10"
                     onClick={e => { 
                       e.stopPropagation(); 
                       e.preventDefault(); 
                       setCurrentImageIndex((currentImageIndex + 1) % property.images.length);
                     }}
                   >
-                    <ChevronRight className="h-4 w-4" />
+                    <ChevronRight className="h-3 w-3 sm:h-4 sm:w-4" />
                   </Button>
                 </>
               )}
 
               {/* Image Navigation Dots */}
               {property.images.length > 1 && (
-                <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                <div className="absolute bottom-3 sm:bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-1 sm:space-x-2">
                   {property.images.map((_, index) => (
                     <button
                       key={index}
                       className={cn(
-                        "w-2 h-2 rounded-full transition-all",
+                        "w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full transition-all",
                         index === currentImageIndex 
                           ? "bg-white" 
                           : "bg-white/50"
@@ -135,40 +135,40 @@ const PropertyCard = ({ property }: PropertyCardProps) => {
               )}
             </div>
 
-            <CardContent className="p-6">
+            <CardContent className="p-4 sm:p-6">
               {/* Title and Location */}
-              <div className="space-y-2 mb-4">
-                <h3 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors">
+              <div className="space-y-2 mb-3 sm:mb-4">
+                <h3 className="text-lg sm:text-xl font-semibold text-foreground group-hover:text-primary transition-colors line-clamp-2">
                   {property.title}
                 </h3>
                 <div className="flex items-center text-muted-foreground">
-                  <MapPin className="h-4 w-4 mr-1" />
-                  <span className="text-sm">{property.location}</span>
+                  <MapPin className="h-3 w-3 sm:h-4 sm:w-4 mr-1" />
+                  <span className="text-xs sm:text-sm">{property.location}</span>
                 </div>
               </div>
 
               {/* Price */}
-              <div className="mb-4">
-                <p className="text-2xl font-bold text-foreground">{property.price}</p>
+              <div className="mb-3 sm:mb-4">
+                <p className="text-lg sm:text-xl lg:text-2xl font-bold text-foreground">{property.price}</p>
               </div>
 
               {/* Property Details */}
-              <div className="grid grid-cols-2 gap-4 mb-4 text-sm">
+              <div className="grid grid-cols-2 gap-3 sm:gap-4 mb-3 sm:mb-4 text-xs sm:text-sm">
                 <div className="flex items-center">
-                  <Home className="h-4 w-4 mr-2 text-muted-foreground" />
+                  <Home className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2 text-muted-foreground" />
                   <span className="text-muted-foreground">{property.bhkOptions}</span>
                 </div>
                 <div className="flex items-center">
-                  <Ruler className="h-4 w-4 mr-2 text-muted-foreground" />
+                  <Ruler className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2 text-muted-foreground" />
                   <span className="text-muted-foreground">{property.carpetArea}</span>
                 </div>
               </div>
 
               {/* Possession Status */}
-              <div className="flex items-center mb-6">
-                <Calendar className="h-4 w-4 mr-2 text-muted-foreground" />
+              <div className="flex items-center mb-4 sm:mb-6">
+                <Calendar className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2 text-muted-foreground" />
                 <span className={cn(
-                  "text-sm px-2 py-1 rounded",
+                  "text-xs sm:text-sm px-2 py-1 rounded",
                   property.possession.includes("Ready") 
                     ? "bg-green-100 text-green-800" 
                     : "bg-blue-100 text-blue-800"
@@ -178,19 +178,19 @@ const PropertyCard = ({ property }: PropertyCardProps) => {
               </div>
 
               {/* EMI/Down Payment Summary */}
-              <div className="bg-muted/50 rounded-lg p-3 mb-4">
-                <div className="flex justify-between text-sm">
+              <div className="bg-muted/50 rounded-lg p-2 sm:p-3 mb-3 sm:mb-4">
+                <div className="flex justify-between text-xs sm:text-sm">
                   <span className="text-muted-foreground">EMI starts from</span>
                   <span className="font-medium text-foreground">₹45,000/month</span>
                 </div>
-                <div className="flex justify-between text-sm mt-1">
+                <div className="flex justify-between text-xs sm:text-sm mt-1">
                   <span className="text-muted-foreground">Down payment</span>
                   <span className="font-medium text-foreground">₹15 Lakhs</span>
                 </div>
               </div>
 
               {/* CTA Button */}
-              <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground" asChild onClick={e => { e.stopPropagation(); }}>
+              <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground text-sm sm:text-base" asChild onClick={e => { e.stopPropagation(); }}>
                 <span>View Details</span>
               </Button>
             </CardContent>

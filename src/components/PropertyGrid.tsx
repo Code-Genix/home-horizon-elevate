@@ -120,35 +120,42 @@ const PropertyGrid = ({ filters }: PropertyGridProps) => {
   return (
     <div className="space-y-6">
       {/* Results Header */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-foreground">
+          <h1 className="text-xl sm:text-2xl font-bold text-foreground">
             Properties in Wakad, Pune
           </h1>
-          <p className="text-muted-foreground mt-1">
+          <p className="text-muted-foreground mt-1 text-sm sm:text-base">
             Showing {startIndex + 1}-{Math.min(startIndex + propertiesPerPage, mockProperties.length)} of {mockProperties.length} results
           </p>
         </div>
         
-        <div className="flex items-center space-x-3">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3">
           <Button 
             variant="outline" 
-            className="flex items-center space-x-2"
+            size="sm"
+            className="flex items-center justify-center space-x-2"
             onClick={() => setSavedSearch(!savedSearch)}
           >
             <Bookmark className={`h-4 w-4 ${savedSearch ? 'fill-current' : ''}`} />
-            <span>{savedSearch ? 'Saved' : 'Save Search'}</span>
+            <span className="hidden sm:inline">{savedSearch ? 'Saved' : 'Save Search'}</span>
+            <span className="sm:hidden">{savedSearch ? 'Saved' : 'Save'}</span>
           </Button>
           
-          <Button variant="outline" className="flex items-center space-x-2">
+          <Button 
+            variant="outline" 
+            size="sm"
+            className="flex items-center justify-center space-x-2"
+          >
             <Bell className="h-4 w-4" />
-            <span>Enable Alerts</span>
+            <span className="hidden sm:inline">Enable Alerts</span>
+            <span className="sm:hidden">Alerts</span>
           </Button>
         </div>
       </div>
 
       {/* Property Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
         {currentProperties.map((property) => (
           <PropertyCard key={property.id} property={property} />
         ))}
@@ -157,7 +164,7 @@ const PropertyGrid = ({ filters }: PropertyGridProps) => {
       {/* Pagination */}
       <div className="flex justify-center mt-8">
         <Pagination>
-          <PaginationContent>
+          <PaginationContent className="flex flex-wrap justify-center gap-1 sm:gap-2">
             <PaginationItem>
               <PaginationPrevious 
                 href="#" 
@@ -178,6 +185,7 @@ const PropertyGrid = ({ filters }: PropertyGridProps) => {
                     setCurrentPage(i + 1);
                   }}
                   isActive={currentPage === i + 1}
+                  className="hidden sm:flex"
                 >
                   {i + 1}
                 </PaginationLink>

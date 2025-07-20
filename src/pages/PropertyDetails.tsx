@@ -148,9 +148,9 @@ const PropertyDetails = () => {
       {/* Breadcrumbs */}
       <div className="bg-card border-b">
         <div className="container mx-auto px-4 py-3">
-          <nav className="flex items-center space-x-2 text-sm text-muted-foreground">
+          <nav className="flex items-center space-x-2 text-sm text-muted-foreground overflow-x-auto">
             {breadcrumbs.map((crumb, index) => (
-              <div key={index} className="flex items-center space-x-2">
+              <div key={index} className="flex items-center space-x-2 flex-shrink-0">
                 {index === 0 && <Home className="w-4 h-4" />}
                 <span className={index === breadcrumbs.length - 1 ? "text-foreground font-medium" : "hover:text-foreground cursor-pointer"}>
                   {crumb.label}
@@ -172,12 +172,12 @@ const PropertyDetails = () => {
       {/* Sticky Navigation */}
       <div className="sticky top-0 z-40 bg-background/95 backdrop-blur border-b">
         <div className="container mx-auto px-4">
-          <nav className="flex space-x-8 overflow-x-auto">
+          <nav className="flex space-x-4 sm:space-x-8 overflow-x-auto">
             {navigationSections.map((section) => (
               <button
                 key={section.id}
                 onClick={() => scrollToSection(section.id)}
-                className={`py-4 px-2 text-sm font-medium border-b-2 transition-colors whitespace-nowrap ${
+                className={`py-3 sm:py-4 px-2 text-sm font-medium border-b-2 transition-colors whitespace-nowrap flex-shrink-0 ${
                   activeSection === section.id
                     ? "border-primary text-primary"
                     : "border-transparent text-muted-foreground hover:text-foreground"
@@ -191,26 +191,26 @@ const PropertyDetails = () => {
       </div>
 
       {/* Content Sections */}
-      <div className="container mx-auto px-4 py-8 space-y-16">
+      <div className="container mx-auto px-4 py-6 sm:py-8 space-y-12 sm:space-y-16">
         
         {/* Overview Section */}
-        <section id="overview" className="space-y-6">
-          <h2 className="text-2xl font-bold">Project Overview</h2>
+        <section id="overview" className="space-y-4 sm:space-y-6">
+          <h2 className="text-xl sm:text-2xl font-bold">Project Overview</h2>
           <div className="prose prose-neutral max-w-none">
-            <p className="text-muted-foreground leading-relaxed">
+            <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">
               {property.overview}
             </p>
           </div>
         </section>
 
         {/* Amenities Section */}
-        <section id="amenities" className="space-y-6">
-          <h2 className="text-2xl font-bold">Amenities & Facilities</h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <section id="amenities" className="space-y-4 sm:space-y-6">
+          <h2 className="text-xl sm:text-2xl font-bold">Amenities & Facilities</h2>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
             {property.amenities.map((amenity, index) => (
-              <div key={index} className="bg-card p-4 rounded-lg border text-center hover:shadow-md transition-shadow">
-                <div className="text-2xl mb-2">{amenity.icon}</div>
-                <p className="text-sm font-medium">{amenity.name}</p>
+              <div key={index} className="bg-card p-3 sm:p-4 rounded-lg border text-center hover:shadow-md transition-shadow">
+                <div className="text-xl sm:text-2xl mb-2">{amenity.icon}</div>
+                <p className="text-xs sm:text-sm font-medium">{amenity.name}</p>
               </div>
             ))}
           </div>
@@ -223,36 +223,36 @@ const PropertyDetails = () => {
         />
 
         {/* Pricing Section */}
-        <section id="pricing" className="space-y-6">
-          <h2 className="text-2xl font-bold">Pricing</h2>
+        <section id="pricing" className="space-y-4 sm:space-y-6">
+          <h2 className="text-xl sm:text-2xl font-bold">Pricing</h2>
           <div className="bg-card rounded-lg border overflow-hidden">
             <div className="overflow-x-auto">
               <table className="w-full">
                 <thead className="bg-muted/50">
                   <tr>
-                    <th className="text-left p-4 font-medium">Type</th>
-                    <th className="text-left p-4 font-medium">Carpet Area</th>
-                    <th className="text-left p-4 font-medium">Price</th>
-                    <th className="text-left p-4 font-medium">Status</th>
+                    <th className="text-left p-3 sm:p-4 font-medium text-sm">Type</th>
+                    <th className="text-left p-3 sm:p-4 font-medium text-sm">Carpet Area</th>
+                    <th className="text-left p-3 sm:p-4 font-medium text-sm">Price</th>
+                    <th className="text-left p-3 sm:p-4 font-medium text-sm">Status</th>
                   </tr>
                 </thead>
                 <tbody>
                   {property.units.map((item, index) => (
                     <tr key={index} className="border-t">
-                      <td className="p-4 font-medium">{item.type}</td>
-                      <td className="p-4 text-muted-foreground">{item.area}</td>
-                      <td className="p-4">
+                      <td className="p-3 sm:p-4 font-medium text-sm">{item.type}</td>
+                      <td className="p-3 sm:p-4 text-muted-foreground text-sm">{item.area}</td>
+                      <td className="p-3 sm:p-4">
                         {item.locked && !isAuthenticated ? (
                           <div className="flex items-center space-x-2">
-                            <span className="text-muted-foreground">Hidden</span>
+                            <span className="text-muted-foreground text-sm">Hidden</span>
                             <Eye className="w-4 h-4 text-muted-foreground" />
                           </div>
                         ) : (
-                          <span className="font-medium">{item.price}</span>
+                          <span className="font-medium text-sm">{item.price}</span>
                         )}
                       </td>
-                      <td className="p-4">
-                        <Badge variant="secondary" className="bg-green-100 text-green-800">
+                      <td className="p-3 sm:p-4">
+                        <Badge variant="secondary" className="bg-green-100 text-green-800 text-xs">
                           <Check className="w-3 h-3 mr-1" />
                           Available
                         </Badge>
@@ -262,12 +262,12 @@ const PropertyDetails = () => {
                 </tbody>
               </table>
             </div>
-            <div className="p-4 border-t bg-muted/25">
+            <div className="p-3 sm:p-4 border-t bg-muted/25">
               <div className="flex flex-col sm:flex-row gap-3">
-                <Button variant="outline" onClick={handleAuthRequired}>
+                <Button variant="outline" size="sm" onClick={handleAuthRequired}>
                   Sign In to Unlock Full Pricing
                 </Button>
-                <Button variant="outline">
+                <Button variant="outline" size="sm">
                   <Download className="w-4 h-4 mr-2" />
                   Download Cost Sheet
                 </Button>
@@ -277,40 +277,40 @@ const PropertyDetails = () => {
         </section>
 
         {/* Units Section */}
-        <section id="units" className="space-y-6">
-          <h2 className="text-2xl font-bold">Unit Availability</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <section id="units" className="space-y-4 sm:space-y-6">
+          <h2 className="text-xl sm:text-2xl font-bold">Unit Availability</h2>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
             {["A103", "B207", "C145", "D089"].map((unit, index) => (
-              <div key={index} className="bg-card p-4 rounded-lg border text-center">
-                <div className="w-12 h-12 bg-muted rounded-lg flex items-center justify-center mx-auto mb-2">
-                  <span className="text-lg">📱</span>
+              <div key={index} className="bg-card p-3 sm:p-4 rounded-lg border text-center">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-muted rounded-lg flex items-center justify-center mx-auto mb-2">
+                  <span className="text-base sm:text-lg">📱</span>
                 </div>
-                <p className="font-medium">{unit}</p>
-                <p className="text-sm text-muted-foreground">2BHK</p>
+                <p className="font-medium text-sm">{unit}</p>
+                <p className="text-xs text-muted-foreground">2BHK</p>
               </div>
             ))}
             {/* Blurred unit cards */}
             {["E156", "F201", "G089", "H134"].map((unit, index) => (
-              <div key={index} className="bg-card p-4 rounded-lg border text-center opacity-50 blur-sm">
-                <div className="w-12 h-12 bg-muted rounded-lg flex items-center justify-center mx-auto mb-2">
-                  <span className="text-lg">📱</span>
+              <div key={index} className="bg-card p-3 sm:p-4 rounded-lg border text-center opacity-50 blur-sm">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-muted rounded-lg flex items-center justify-center mx-auto mb-2">
+                  <span className="text-base sm:text-lg">📱</span>
                 </div>
-                <p className="font-medium">{unit}</p>
-                <p className="text-sm text-muted-foreground">3BHK</p>
+                <p className="font-medium text-sm">{unit}</p>
+                <p className="text-xs text-muted-foreground">3BHK</p>
               </div>
             ))}
           </div>
           <div className="text-center">
-            <Button variant="outline" onClick={handleAuthRequired}>
+            <Button variant="outline" size="sm" onClick={handleAuthRequired}>
               Unlock All Units
             </Button>
           </div>
         </section>
 
         {/* Gallery Section */}
-        <section id="gallery" className="space-y-6">
-          <h2 className="text-2xl font-bold">Photos</h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <section id="gallery" className="space-y-4 sm:space-y-6">
+          <h2 className="text-xl sm:text-2xl font-bold">Photos</h2>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
             {property.images.slice(0, 7).map((image, index) => (
               <div
                 key={index}
@@ -322,7 +322,7 @@ const PropertyDetails = () => {
             ))}
             <div className="aspect-square rounded-lg border-2 border-dashed border-muted-foreground/30 flex items-center justify-center text-muted-foreground">
               <div className="text-center">
-                <p className="text-sm">+12 more</p>
+                <p className="text-xs sm:text-sm">+12 more</p>
                 <p className="text-xs">View All</p>
               </div>
             </div>

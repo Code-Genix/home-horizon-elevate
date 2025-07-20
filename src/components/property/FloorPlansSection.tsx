@@ -41,16 +41,16 @@ const FloorPlansSection = ({ isAuthenticated, onAuthRequired }: FloorPlansSectio
   ];
 
   return (
-    <section id="floor-plans" className="space-y-6">
+    <section id="floor-plans" className="space-y-4 sm:space-y-6">
       <div className="flex items-center justify-between">
-        <h2 className="text-2xl font-bold">Floor Plans</h2>
+        <h2 className="text-xl sm:text-2xl font-bold">Floor Plans</h2>
       </div>
 
       {/* Tab Navigation */}
       <div className="flex bg-muted rounded-lg p-1 w-fit">
         <button
           onClick={() => setActiveTab("master-plan")}
-          className={`px-6 py-2 rounded-md text-sm font-medium transition-colors ${
+          className={`px-4 sm:px-6 py-2 rounded-md text-xs sm:text-sm font-medium transition-colors ${
             activeTab === "master-plan" 
               ? "bg-background text-foreground shadow-sm" 
               : "text-muted-foreground hover:text-foreground"
@@ -60,7 +60,7 @@ const FloorPlansSection = ({ isAuthenticated, onAuthRequired }: FloorPlansSectio
         </button>
         <button
           onClick={() => setActiveTab("floor-plan")}
-          className={`px-6 py-2 rounded-md text-sm font-medium transition-colors ${
+          className={`px-4 sm:px-6 py-2 rounded-md text-xs sm:text-sm font-medium transition-colors ${
             activeTab === "floor-plan"
               ? "bg-background text-foreground shadow-sm" 
               : "text-muted-foreground hover:text-foreground"
@@ -76,17 +76,17 @@ const FloorPlansSection = ({ isAuthenticated, onAuthRequired }: FloorPlansSectio
           {activeTab === "master-plan" ? (
             <div>
               {/* Header */}
-              <div className="flex items-center justify-between p-6 pb-4">
+              <div className="flex items-center justify-between p-4 sm:p-6 pb-3 sm:pb-4">
                 <div className="border-b-2 border-green-500 pb-2">
-                  <span className="text-sm font-medium text-green-600">Master Plan</span>
+                  <span className="text-xs sm:text-sm font-medium text-green-600">Master Plan</span>
                 </div>
               </div>
               
               {/* Content */}
-              <div className="px-6 pb-6">
-                <div className="flex items-center justify-between mb-6">
-                  <h3 className="text-lg font-semibold text-gray-900">MASTER PLAN</h3>
-                  <h3 className="text-lg font-bold text-gray-900">ROHAN EKAM BALEWADI</h3>
+              <div className="px-4 sm:px-6 pb-4 sm:pb-6">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4 sm:mb-6 gap-2">
+                  <h3 className="text-base sm:text-lg font-semibold text-gray-900">MASTER PLAN</h3>
+                  <h3 className="text-base sm:text-lg font-bold text-gray-900">ROHAN EKAM BALEWADI</h3>
                 </div>
                 
                 {/* Master Plan Image */}
@@ -105,31 +105,31 @@ const FloorPlansSection = ({ isAuthenticated, onAuthRequired }: FloorPlansSectio
             <div>
               {/* Floor Plan Content */}
               {isAuthenticated ? (
-                <div className="p-6">
-                  <div className="flex items-center justify-between mb-6">
+                <div className="p-4 sm:p-6">
+                  <div className="flex items-center justify-between mb-4 sm:mb-6">
                     <div className="border-b-2 border-green-500 pb-2">
-                      <span className="text-sm font-medium text-green-600">Floor Plan</span>
+                      <span className="text-xs sm:text-sm font-medium text-green-600">Floor Plan</span>
                     </div>
                   </div>
 
-                  <div className="mb-6">
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">WING-WISE FLOOR PLANS</h3>
-                    <p className="text-sm text-muted-foreground">Choose a wing to view detailed floor plans</p>
+                  <div className="mb-4 sm:mb-6">
+                    <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-2">WING-WISE FLOOR PLANS</h3>
+                    <p className="text-xs sm:text-sm text-muted-foreground">Choose a wing to view detailed floor plans</p>
                   </div>
 
                   {/* Wing Cards */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                     {wings.map((wing) => (
                       <Card key={wing.id} className="hover:shadow-md transition-shadow cursor-pointer group">
                         <CardHeader className="pb-3">
                           <div className="flex items-center justify-between">
-                            <CardTitle className="text-lg">{wing.name}</CardTitle>
+                            <CardTitle className="text-base sm:text-lg">{wing.name}</CardTitle>
                             <Badge variant="secondary" className="text-xs">
                               {wing.totalUnits} Units
                             </Badge>
                           </div>
                         </CardHeader>
-                        <CardContent className="space-y-4">
+                        <CardContent className="space-y-3 sm:space-y-4">
                           {/* Wing Image Preview */}
                           <div className="aspect-[4/3] bg-muted rounded-lg overflow-hidden">
                             <img 
@@ -141,11 +141,11 @@ const FloorPlansSection = ({ isAuthenticated, onAuthRequired }: FloorPlansSectio
 
                           {/* Wing Details */}
                           <div className="space-y-2">
-                            <div className="flex items-center justify-between text-sm">
+                            <div className="flex items-center justify-between text-xs sm:text-sm">
                               <span className="text-muted-foreground">Floors:</span>
                               <span className="font-medium">{wing.floors}</span>
                             </div>
-                            <div className="flex items-center justify-between text-sm">
+                            <div className="flex items-center justify-between text-xs sm:text-sm">
                               <span className="text-muted-foreground">Unit Types:</span>
                               <div className="flex gap-1">
                                 {wing.units.map((unit) => (
@@ -159,11 +159,11 @@ const FloorPlansSection = ({ isAuthenticated, onAuthRequired }: FloorPlansSectio
 
                           {/* Actions */}
                           <div className="flex gap-2 pt-2">
-                            <Button variant="outline" size="sm" className="flex-1">
+                            <Button variant="outline" size="sm" className="flex-1 text-xs">
                               <Eye className="w-3 h-3 mr-1" />
                               View
                             </Button>
-                            <Button variant="outline" size="sm" className="flex-1">
+                            <Button variant="outline" size="sm" className="flex-1 text-xs">
                               <Download className="w-3 h-3 mr-1" />
                               PDF
                             </Button>
@@ -175,20 +175,20 @@ const FloorPlansSection = ({ isAuthenticated, onAuthRequired }: FloorPlansSectio
                 </div>
               ) : (
                 // Lock Screen Preview
-                <div className="relative p-6">
+                <div className="relative p-4 sm:p-6">
                   <div className="absolute inset-0 bg-background/80 backdrop-blur-sm z-10 flex items-center justify-center">
                     <Card className="max-w-md mx-auto shadow-lg">
-                      <CardContent className="p-6 text-center space-y-4">
-                        <div className="w-16 h-16 bg-muted rounded-full flex items-center justify-center mx-auto">
-                          <Lock className="w-8 h-8 text-muted-foreground" />
+                      <CardContent className="p-4 sm:p-6 text-center space-y-3 sm:space-y-4">
+                        <div className="w-12 h-12 sm:w-16 sm:h-16 bg-muted rounded-full flex items-center justify-center mx-auto">
+                          <Lock className="w-6 h-6 sm:w-8 sm:h-8 text-muted-foreground" />
                         </div>
                         <div>
-                          <h3 className="text-lg font-semibold mb-2">Unlock Wing-wise Floor Plans</h3>
-                          <p className="text-sm text-muted-foreground mb-4">
+                          <h3 className="text-base sm:text-lg font-semibold mb-2">Unlock Wing-wise Floor Plans</h3>
+                          <p className="text-xs sm:text-sm text-muted-foreground mb-4">
                             Get access to detailed floor plans for all wings with unit layouts, dimensions, and downloadable PDFs.
                           </p>
                         </div>
-                        <Button onClick={onAuthRequired} className="w-full">
+                        <Button onClick={onAuthRequired} className="w-full text-sm">
                           <FileText className="w-4 h-4 mr-2" />
                           Sign Up to View Floor Plans
                         </Button>
@@ -198,26 +198,26 @@ const FloorPlansSection = ({ isAuthenticated, onAuthRequired }: FloorPlansSectio
 
                   {/* Blurred Preview Content */}
                   <div className="opacity-30 blur-sm">
-                    <div className="mb-6">
-                      <h3 className="text-lg font-semibold text-gray-900 mb-2">WING-WISE FLOOR PLANS</h3>
-                      <p className="text-sm text-muted-foreground">Choose a wing to view detailed floor plans</p>
+                    <div className="mb-4 sm:mb-6">
+                      <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-2">WING-WISE FLOOR PLANS</h3>
+                      <p className="text-xs sm:text-sm text-muted-foreground">Choose a wing to view detailed floor plans</p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                       {wings.slice(0, 2).map((wing) => (
                         <Card key={wing.id}>
                           <CardHeader className="pb-3">
                             <div className="flex items-center justify-between">
-                              <CardTitle className="text-lg">{wing.name}</CardTitle>
+                              <CardTitle className="text-base sm:text-lg">{wing.name}</CardTitle>
                               <Badge variant="secondary" className="text-xs">
                                 {wing.totalUnits} Units
                               </Badge>
                             </div>
                           </CardHeader>
-                          <CardContent className="space-y-4">
+                          <CardContent className="space-y-3 sm:space-y-4">
                             <div className="aspect-[4/3] bg-muted rounded-lg"></div>
                             <div className="space-y-2">
-                              <div className="flex items-center justify-between text-sm">
+                              <div className="flex items-center justify-between text-xs sm:text-sm">
                                 <span className="text-muted-foreground">Floors:</span>
                                 <span className="font-medium">{wing.floors}</span>
                               </div>

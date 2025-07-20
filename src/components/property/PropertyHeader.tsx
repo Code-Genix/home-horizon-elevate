@@ -48,8 +48,8 @@ const PropertyHeader = ({ property, onLocationClick, onAuthRequired, isAuthentic
 
   return (
     <div className="bg-card border-b">
-      <div className="container mx-auto px-4 py-6">
-        <div className="grid lg:grid-cols-2 gap-8">
+      <div className="container mx-auto px-4 py-4 sm:py-6">
+        <div className="grid lg:grid-cols-2 gap-6 sm:gap-8">
           {/* Image Carousel */}
           <div className="relative">
             <Carousel className="w-full" setApi={setCarouselApi}>
@@ -62,25 +62,25 @@ const PropertyHeader = ({ property, onLocationClick, onAuthRequired, isAuthentic
                         alt={`${property.name} - Image ${index + 1}`}
                         className="w-full h-full object-cover"
                       />
-                      <div className="absolute top-4 right-4 bg-background/90 rounded-full px-3 py-1 text-sm">
+                      <div className="absolute top-3 sm:top-4 right-3 sm:right-4 bg-background/90 rounded-full px-2 sm:px-3 py-1 text-xs sm:text-sm">
                         {index + 1} / {property.images.length}
                       </div>
                     </div>
                   </CarouselItem>
                 ))}
               </CarouselContent>
-              <CarouselPrevious className="left-4" />
-              <CarouselNext className="right-4" />
+              <CarouselPrevious className="left-2 sm:left-4 h-8 w-8 sm:h-10 sm:w-10" />
+              <CarouselNext className="right-2 sm:right-4 h-8 w-8 sm:h-10 sm:w-10" />
             </Carousel>
 
             {/* Thumbnail Strip */}
-            <div className="flex space-x-2 mt-4 overflow-x-auto">
+            <div className="flex space-x-2 mt-3 sm:mt-4 overflow-x-auto">
               {property.images.slice(0, 6).map((image, index) => (
                 <button
                   key={index}
                   onClick={() => scrollTo(index)}
                   className={cn(
-                    "flex-shrink-0 w-16 h-12 rounded-md overflow-hidden border-2",
+                    "flex-shrink-0 w-12 h-9 sm:w-16 sm:h-12 rounded-md overflow-hidden border-2",
                     currentImageIndex === index ? "border-blue-800" : "border-border hover:border-blue-300"
                   )}
                   style={{ outline: currentImageIndex === index ? '2px solid #1e3a8a' : undefined }}
@@ -92,29 +92,29 @@ const PropertyHeader = ({ property, onLocationClick, onAuthRequired, isAuthentic
           </div>
 
           {/* Property Info */}
-          <div className="space-y-6">
+          <div className="space-y-4 sm:space-y-6">
             {/* Title & Tags */}
             <div>
-              <div className="flex flex-wrap gap-2 mb-3">
+              <div className="flex flex-wrap gap-1 sm:gap-2 mb-2 sm:mb-3">
                 {property.tags.map((tag) => (
                   <Badge key={tag} variant="secondary" className="text-xs">
                     {tag}
                   </Badge>
                 ))}
               </div>
-              <h1 className="text-3xl font-bold text-foreground mb-2">{property.name}</h1>
-              <div className="flex items-center text-muted-foreground mb-4">
+              <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold text-foreground mb-2">{property.name}</h1>
+              <div className="flex items-center text-muted-foreground mb-3 sm:mb-4">
                 <MapPin className="w-4 h-4 mr-2" />
-                <span>{property.location}</span>
+                <span className="text-sm sm:text-base">{property.location}</span>
               </div>
             </div>
 
             {/* Price */}
-            <div className="bg-background rounded-lg p-4 border">
-              <div className="flex items-center justify-between">
+            <div className="bg-background rounded-lg p-3 sm:p-4 border">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
                 <div>
-                  <p className="text-sm text-muted-foreground mb-1">Price Range</p>
-                  <p className="text-2xl font-bold text-foreground">
+                  <p className="text-xs sm:text-sm text-muted-foreground mb-1">Price Range</p>
+                  <p className="text-lg sm:text-xl lg:text-2xl font-bold text-foreground">
                     {showFullPrice ? property.priceRange : "₹1.30 Cr - ₹X.XX Cr"}
                   </p>
                 </div>
@@ -136,10 +136,10 @@ const PropertyHeader = ({ property, onLocationClick, onAuthRequired, isAuthentic
 
             {/* BHK Types */}
             <div>
-              <p className="text-sm text-muted-foreground mb-2">Available Configurations</p>
-              <div className="flex gap-2">
+              <p className="text-xs sm:text-sm text-muted-foreground mb-2">Available Configurations</p>
+              <div className="flex flex-wrap gap-2">
                 {property.bhkTypes.map((bhk) => (
-                  <Badge key={bhk} variant="outline" className="px-4 py-2">
+                  <Badge key={bhk} variant="outline" className="px-3 sm:px-4 py-1 sm:py-2 text-sm">
                     {bhk}
                   </Badge>
                 ))}
@@ -147,24 +147,24 @@ const PropertyHeader = ({ property, onLocationClick, onAuthRequired, isAuthentic
             </div>
 
             {/* RERA */}
-            <div className="flex items-center text-sm text-muted-foreground">
+            <div className="flex items-center text-xs sm:text-sm text-muted-foreground">
               <Shield className="w-4 h-4 mr-2" />
               <span>RERA: {property.rera}</span>
             </div>
 
             {/* CTA Buttons */}
-            <div className="grid grid-cols-2 gap-3">
-              <Button size="lg" className="w-full">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
+              <Button size="sm" className="w-full">
                 <Phone className="w-4 h-4 mr-2" />
                 Call Now
               </Button>
-              <Button variant="outline" size="lg" className="w-full">
+              <Button variant="outline" size="sm" className="w-full">
                 <Calendar className="w-4 h-4 mr-2" />
                 Schedule Visit
               </Button>
               <Button 
                 variant="outline" 
-                size="lg" 
+                size="sm" 
                 className="w-full"
                 onClick={onLocationClick}
               >
@@ -173,7 +173,7 @@ const PropertyHeader = ({ property, onLocationClick, onAuthRequired, isAuthentic
               </Button>
               <Button 
                 variant="outline" 
-                size="lg" 
+                size="sm" 
                 className="w-full"
                 onClick={!isAuthenticated ? onAuthRequired : undefined}
               >

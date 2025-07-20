@@ -1,6 +1,7 @@
-import { Search, User, HelpCircle } from "lucide-react";
+import { Search, User, HelpCircle, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 
 interface PropertyHeaderProps {
   searchLocation: string;
@@ -10,39 +11,92 @@ interface PropertyHeaderProps {
 const PropertyHeader = ({ searchLocation, onSearchLocationChange }: PropertyHeaderProps) => {
   return (
     <header className="bg-card border-b border-border sticky top-0 z-50 shadow-sm">
-      <div className="container mx-auto px-6 py-4">
-        <div className="flex items-center justify-between">
+      <div className="container mx-auto px-4 sm:px-6 py-3 sm:py-4">
+        <div className="flex items-center justify-between gap-4">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-xl">H</span>
+          <div className="flex items-center space-x-2 flex-shrink-0">
+            <div className="w-8 h-8 sm:w-10 sm:h-10 bg-primary rounded-lg flex items-center justify-center">
+              <span className="text-primary-foreground font-bold text-lg sm:text-xl">H</span>
             </div>
-            <span className="font-bold text-xl text-foreground">HomeFinder</span>
+            <span className="font-bold text-lg sm:text-xl text-foreground hidden sm:block">HomeFinder</span>
           </div>
 
-          {/* Search Bar */}
-          <div className="flex-1 max-w-2xl mx-8">
-            <div className="relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-5 w-5" />
+          {/* Search Bar - Hidden on mobile, shown on tablet+ */}
+          <div className="hidden sm:flex flex-1 max-w-2xl mx-4 lg:mx-8">
+            <div className="relative w-full">
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4 sm:h-5 sm:w-5" />
               <Input
                 type="text"
                 value={searchLocation}
                 onChange={(e) => onSearchLocationChange(e.target.value)}
                 placeholder="Search for location or project..."
-                className="pl-10 h-12 text-base"
+                className="pl-10 h-10 sm:h-12 text-sm sm:text-base"
               />
             </div>
           </div>
 
+          {/* Mobile Search Button */}
+          <div className="sm:hidden flex-1">
+            <Button variant="outline" className="w-full justify-start text-muted-foreground">
+              <Search className="h-4 w-4 mr-2" />
+              Search location...
+            </Button>
+          </div>
+
           {/* Right Actions */}
-          <div className="flex items-center space-x-4">
-            <Button variant="ghost" size="default" className="rounded-full px-6 py-3">
-              <HelpCircle className="h-6 w-6" />
-            </Button>
-            
-            <Button variant="ghost" size="default" className="rounded-full px-6 py-3">
-              <User className="h-6 w-6" />
-            </Button>
+          <div className="flex items-center space-x-2 sm:space-x-4">
+            {/* Desktop Actions */}
+            <div className="hidden sm:flex items-center space-x-2">
+              <Button variant="ghost" size="sm" className="rounded-full px-3 py-2">
+                <HelpCircle className="h-5 w-5" />
+              </Button>
+              
+              <Button variant="ghost" size="sm" className="rounded-full px-3 py-2">
+                <User className="h-5 w-5" />
+              </Button>
+            </div>
+
+            {/* Mobile Menu */}
+            <Sheet>
+              <SheetTrigger asChild>
+                <Button variant="ghost" size="sm" className="sm:hidden">
+                  <Menu className="h-5 w-5" />
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="right" className="w-[280px] sm:w-[350px]">
+                <SheetHeader>
+                  <SheetTitle>Menu</SheetTitle>
+                </SheetHeader>
+                <div className="mt-6 space-y-4">
+                  <div className="space-y-2">
+                    <h3 className="text-sm font-medium text-muted-foreground">Search</h3>
+                    <div className="relative">
+                      <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
+                      <Input
+                        type="text"
+                        value={searchLocation}
+                        onChange={(e) => onSearchLocationChange(e.target.value)}
+                        placeholder="Search for location or project..."
+                        className="pl-10"
+                      />
+                    </div>
+                  </div>
+                  <div className="space-y-2">
+                    <h3 className="text-sm font-medium text-muted-foreground">Quick Actions</h3>
+                    <div className="space-y-2">
+                      <Button variant="ghost" className="w-full justify-start">
+                        <HelpCircle className="h-4 w-4 mr-2" />
+                        Help & Support
+                      </Button>
+                      <Button variant="ghost" className="w-full justify-start">
+                        <User className="h-4 w-4 mr-2" />
+                        Sign In / Register
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+              </SheetContent>
+            </Sheet>
           </div>
         </div>
       </div>
