@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button"
-import { Menu, X } from "lucide-react"
+import { Menu, X, Home } from "lucide-react"
 import { useState } from "react"
 
 const Navbar = () => {
@@ -18,8 +18,9 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <div className="flex-shrink-0">
-            <span className="text-2xl font-urbanist font-bold text-navy">HomeHorizon</span>
+          <div className="flex-shrink-0 flex items-center gap-2">
+            <Home className="h-8 w-8 text-navy" />
+            <span className="text-2xl font-urbanist font-bold text-navy">URBAN GHAR</span>
           </div>
 
           {/* Desktop Navigation */}

@@ -1,4 +1,4 @@
-import { Search, User, HelpCircle, Menu } from "lucide-react";
+import { Search, User, HelpCircle, Menu, Home } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
@@ -14,11 +14,9 @@ const PropertyHeader = ({ searchLocation, onSearchLocationChange }: PropertyHead
       <div className="container mx-auto px-4 sm:px-6 py-3 sm:py-4">
         <div className="flex items-center justify-between gap-4">
           {/* Logo */}
-          <div className="flex items-center space-x-2 flex-shrink-0">
-            <div className="w-8 h-8 sm:w-10 sm:h-10 bg-primary rounded-lg flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-lg sm:text-xl">H</span>
-            </div>
-            <span className="font-bold text-lg sm:text-xl text-foreground hidden sm:block">HomeFinder</span>
+          <div className="flex items-center gap-2 flex-shrink-0">
+            <Home className="h-8 w-8 text-navy" />
+            <span className="text-2xl font-urbanist font-bold text-navy hidden sm:block">URBAN GHAR</span>
           </div>
 
           {/* Search Bar - Hidden on mobile, shown on tablet+ */}

@@ -29,7 +29,7 @@ const ValueProposition = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-urbanist font-bold text-navy mb-4">
-            Why Choose HomeHorizon?
+            Why Choose URBAN GHAR?
           </h2>
           <p className="text-xl text-slate font-inter max-w-3xl mx-auto">
             We're revolutionizing the way you discover and buy your dream home with trust, transparency, and technology.

@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card } from "@/components/ui/card"
-import { Phone, Mail, MapPin, Facebook, Twitter, Instagram, Linkedin } from "lucide-react"
+import { Phone, Mail, MapPin, Facebook, Twitter, Instagram, Linkedin, Home } from "lucide-react"
 
 const Footer = () => {
   const socialLinks = [
@@ -58,8 +58,9 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="lg:col-span-1">
-            <div className="mb-6">
-              <span className="text-2xl font-urbanist font-bold text-gold">HomeHorizon</span>
+            <div className="mb-6 flex items-center gap-2">
+              <Home className="h-8 w-8 text-gold" />
+              <span className="text-2xl font-urbanist font-bold text-gold">URBAN GHAR</span>
             </div>
             <p className="font-inter text-white/80 mb-6 leading-relaxed">
               Your trusted partner in finding the perfect home. We connect you with verified properties and trusted developers across India.
@@ -73,7 +74,7 @@ const Footer = () => {
               </div>
               <div className="flex items-center gap-3">
                 <Mail className="h-4 w-4 text-gold" />
-                <span className="font-inter text-sm">hello@homehorizon.com</span>
+                <span className="font-inter text-sm">hello@urbanghar.com</span>
               </div>
               <div className="flex items-center gap-3">
                 <MapPin className="h-4 w-4 text-gold" />
@@ -159,7 +160,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-white/20 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
           <div className="font-inter text-white/60 text-sm mb-4 md:mb-0">
-            © 2025 HomeHorizon. All rights reserved.
+            © 2025 URBAN GHAR. All rights reserved.
           </div>
           <div className="flex gap-6">
             <a href="#" className="font-inter text-white/60 hover:text-white text-sm transition-colors duration-200">
