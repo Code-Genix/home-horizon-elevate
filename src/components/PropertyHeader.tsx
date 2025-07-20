@@ -36,16 +36,12 @@ const PropertyHeader = ({ searchLocation, onSearchLocationChange }: PropertyHead
 
           {/* Right Actions */}
           <div className="flex items-center space-x-4">
-            <Button variant="ghost" size="icon" className="rounded-full">
-              <HelpCircle className="h-5 w-5" />
+            <Button variant="ghost" size="default" className="rounded-full px-6 py-3">
+              <HelpCircle className="h-6 w-6" />
             </Button>
             
-            <Button variant="ghost" size="icon" className="rounded-full">
-              <User className="h-5 w-5" />
-            </Button>
-            
-            <Button className="bg-accent hover:bg-accent/90 text-accent-foreground px-6">
-              Post Property
+            <Button variant="ghost" size="default" className="rounded-full px-6 py-3">
+              <User className="h-6 w-6" />
             </Button>
           </div>
         </div>
