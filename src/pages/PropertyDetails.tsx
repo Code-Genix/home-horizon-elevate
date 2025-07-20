@@ -52,12 +52,12 @@ const getPropertyData = (id: string) => ({
     { name: "Parking", icon: "🚗" }
   ],
   partnerBanks: [
-    { name: "HDFC Bank", logo: "/placeholder.svg", preApproved: true },
-    { name: "SBI", logo: "/placeholder.svg", preApproved: true },
-    { name: "ICICI Bank", logo: "/placeholder.svg", preApproved: true },
-    { name: "Axis Bank", logo: "/placeholder.svg", preApproved: false },
-    { name: "Kotak Bank", logo: "/placeholder.svg", preApproved: false },
-    { name: "Punjab National Bank", logo: "/placeholder.svg", preApproved: false }
+    { name: "HDFC Bank", logo: "/bank-logos/hdfc-bank.svg", preApproved: true },
+    { name: "SBI", logo: "/bank-logos/sbi-bank.svg", preApproved: true },
+    { name: "ICICI Bank", logo: "/bank-logos/icici-bank.svg", preApproved: true },
+    { name: "Axis Bank", logo: "/bank-logos/axis-bank.svg", preApproved: false },
+    { name: "Kotak Bank", logo: "/bank-logos/kotak-bank.svg", preApproved: false },
+    { name: "Bank of Baroda", logo: "/bank-logos/bob-bank.svg", preApproved: false }
   ],
   units: [
     { type: "1BHK", area: "650 sq.ft", price: "₹1.30 Cr", available: 5, locked: false },

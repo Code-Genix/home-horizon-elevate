@@ -31,7 +31,10 @@ const PartnerBanks = ({ banks }: PartnerBanksProps) => {
                   <img 
                     src={bank.logo}
                     alt={`${bank.name} logo`}
-                    className="max-w-[160px] max-h-[60px] object-contain"
+                    className="w-[160px] h-[60px] object-contain"
+                    style={{
+                      objectFit: 'contain'
+                    }}
                   />
                 </div>
                 

@@ -1,0 +1,15 @@
+<svg width="160" height="60" viewBox="0 0 160 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="160" height="60" rx="8" fill="white" stroke="#E5E7EB" stroke-width="1"/>
+  <g transform="translate(12, 12)">
+    <!-- ICICI Bank Logo -->
+    <ellipse cx="18" cy="18" rx="18" ry="12" fill="url(#iciciGradient)"/>
+    <text x="18" y="22" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white" text-anchor="middle">i</text>
+    <text x="44" y="24" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#1E40AF">ICICI Bank</text>
+    <defs>
+      <linearGradient id="iciciGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" style="stop-color:#DC2626"/>
+        <stop offset="100%" style="stop-color:#EA580C"/>
+      </linearGradient>
+    </defs>
+  </g>
+</svg>
