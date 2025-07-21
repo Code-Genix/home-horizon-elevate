@@ -40,7 +40,7 @@ const HeroSection = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-[calc(4rem+env(safe-area-inset-top))] md:pt-32">
         {/* Headlines */}
         <div className="mb-12">
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-urbanist font-bold text-white mb-6 leading-tight">
